@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Armored Lexus LX600 - Sentinel Titans</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/icons/Favicon.ico">
+    
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'blacker': ['Blacker', 'serif'],
+                        'inter': ['Inter', 'sans-serif']
+                    },
+                    colors: {
+                        'primary-bg': '#100E0C',
+                        'body-text': '#C7C7C7'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-primary-bg text-white">
+    <!-- Navigation Bar -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-transform duration-300 ease-in-out">
+        <div class="max-w-7xl mx-auto px-2 py-4">
+            <div class="flex items-center justify-between">
+                <!-- Logo -->
+                <div class="flex-shrink-0">
+                    <a href="index.html">
+                        <img src="assets/logos/logo for webAsset 14.svg" alt="Sentinel Titans" class="h-12 w-auto">
+                    </a>
+                </div>
+                
+                <!-- Navigation Items -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="font-inter text-white hover:text-white transition-colors duration-200 text-base">Home</a>
+                    <a href="index.html#company" class="font-inter text-gray-300 hover:text-white transition-colors duration-200 text-base">Company</a>
+                    <a href="vehicles.html" class="font-inter text-gray-300 hover:text-white transition-colors duration-200 text-base">Vehicles</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="pt-24 pb-16">
+        <div class="max-w-7xl mx-auto px-4">
+            <!-- Back to Vehicles Navigation -->
+            <div class="mb-4">
+                <a href="vehicles.html" class="inline-flex items-center text-body-text hover:text-white transition-colors duration-200">
+                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+                    </svg>
+                    Back to Vehicles
+                </a>
+            </div>
+
+            <!-- Vehicle Title and Category (Category above, now clickable) -->
+            <div class="mb-8">
+                <a href="vehicles.html" id="vehicle-category-link" class="inline-block text-lg text-body-text hover:text-white transition-colors duration-200 mb-2">
+                    <span id="vehicle-category-text">Armored SUV</span>
+                </a>
+                <h1 class="text-4xl md:text-5xl font-blacker text-white mb-2" id="vehicle-title">Armored Lexus LX600</h1>
+            </div>
+
+            <!-- Two Column Layout -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Left Column - Image Gallery (2/3 width) -->
+                <div class="lg:col-span-2">
+                    <!-- Main Image -->
+                    <div class="mb-6">
+                        <img id="main-image" src="assets/images/All Vehicles/suvs/LEXUS 600/20250222_113047.jpg" alt="Armored Lexus LX600" class="w-full h-96 md:h-[500px] object-cover rounded-lg">
+                    </div>
+
+                    <!-- Thumbnail Gallery -->
+                    <div class="overflow-x-auto">
+                        <div class="flex space-x-4 pb-4" id="thumbnail-gallery">
+                            <!-- Thumbnails will be populated by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column - Specifications & CTA (1/3 width) -->
+                <div class="lg:col-span-1">
+                    <!-- Base Vehicle Specifications -->
+                    <div class="bg-white/5 border border-white/10 rounded-lg p-6 mb-6">
+                        <h2 class="text-xl font-blacker text-white mb-4">Base Vehicle Specifications</h2>
+                        <div class="space-y-3" id="specs-table">
+                            <!-- Specifications will be populated by JavaScript -->
+                        </div>
+                    </div>
+
+                    <!-- Call-To-Action Box -->
+                    <div class="bg-white/10 border border-white/20 rounded-lg p-6">
+                        <h3 class="text-lg font-blacker text-white mb-4">Interested in this vehicle?</h3>
+                        <div class="space-y-3">
+                            <button class="w-full bg-white text-primary-bg font-blacker font-medium py-3 px-6 rounded-none hover:bg-gray-200 transition-colors duration-200">
+                                Submit an Inquiry
+                            </button>
+                            <button class="w-full border-2 border-white text-white font-blacker font-medium py-3 px-6 rounded-none hover:bg-white hover:text-primary-bg transition-colors duration-200">
+                                Call Now
+                            </button>
+                            <button class="w-full bg-green-600 text-white font-blacker font-medium py-3 px-6 rounded-none hover:bg-green-700 transition-colors duration-200">
+                                WhatsApp
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                                    </div>
+                    </div>
+
+                    <!-- Similar Cars Section -->
+                    <section class="mt-20">
+                        <div class="text-center mb-12">
+                            <h2 class="text-3xl font-blacker text-white mb-4">SIMILAR CARS</h2>
+                            <div class="w-24 h-px bg-white mx-auto"></div>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="similar-cars-grid">
+                            <!-- Similar cars will be populated by JavaScript -->
+                        </div>
+                    </section>
+                </main>
+
+                <!-- Footer -->
+                <footer class="bg-primary-bg border-t border-white/10 text-body-text">
+                    <div class="max-w-7xl mx-auto px-6 py-16 grid grid-cols-1 md:grid-cols-3 gap-12">
+                        <!-- Left: Mission -->
+                        <div class="space-y-4">
+                            <h3 class="font-blacker text-2xl text-white">Our mission</h3>
+                            <p class="font-inter text-sm leading-relaxed">
+                                Sentinel Titans strives to exceed expectations in every assignment by providing exceptional customer service, setting industry benchmarks for quality and performance, ensuring swift turnarounds, and offering informed recommendations when it comes to acquiring an armored vehicle.
+                            </p>
+                        </div>
+
+                        <!-- Center: Newsletter -->
+                        <div class="space-y-4">
+                            <h3 class="font-blacker text-2xl text-white text-center md:text-left">Stay updated</h3>
+                            <p class="font-inter text-sm leading-relaxed text-center md:text-left">
+                                By enrolling in our corporate newsletter, you will consistently stay informed about our most recent promotions, exclusive deals, and updated vehicle inventory.
+                            </p>
+                            <form class="flex flex-col sm:flex-row items-center sm:items-start gap-4" onsubmit="event.preventDefault();">
+                                <input type="email" placeholder="Enter email address" required class="w-full sm:flex-1 px-4 py-3 text-sm text-primary-bg placeholder-gray-500 focus:outline-none" />
+                                <button type="submit" class="company-brochure-btn px-6 py-3">Subscribe</button>
+                            </form>
+                        </div>
+
+                        <!-- Right: Contact & Address arranged horizontally -->
+                        <div class="flex flex-col md:flex-row md:justify-end gap-8">
+                            <!-- Contact -->
+                            <div class="space-y-2 md:text-right">
+                                <h3 class="font-blacker text-2xl text-white">Contact</h3>
+                                <a href="tel:+97143434772" class="block font-inter text-sm hover:text-white transition-colors">+971&nbsp;43&nbsp;43&nbsp;4772</a>
+                                <a href="tel:+971545637533" class="block font-inter text-sm hover:text-white transition-colors">+971&nbsp;54&nbsp;563&nbsp;7533</a>
+                                <a href="tel:+971545637533" class="block font-inter text-sm hover:text-white transition-colors">+971&nbsp;54&nbsp;563&nbsp;7533</a>
+                                <a href="mailto:info@sentinel-titans.com" class="block font-inter text-sm hover:text-white transition-colors">info@sentinel-titans.com</a>
+                            </div>
+                            <!-- Address -->
+                            <div class="space-y-2 md:text-right">
+                                <h3 class="font-blacker text-2xl text-white">Address</h3>
+                                <p class="font-inter text-sm leading-relaxed">
+                                    WAREHOUSE No (4)<br>
+                                    JABEL ALI MAXI MIX PHASE 2,<br>
+                                    Plot No. 599-737<br>
+                                    Jabel Ali Industrial First,<br>
+                                    Post Box 261141
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Footer Navigation Links -->
+                    <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-center gap-8">
+                        <a href="index.html" class="font-inter text-sm text-body-text hover:text-white transition-colors">Home</a>
+                        <a href="index.html#company" class="font-inter text-sm text-body-text hover:text-white transition-colors">Company</a>
+                        <a href="vehicles.html" class="font-inter text-sm text-body-text hover:text-white transition-colors">Vehicles</a>
+                        <a href="index.html#production" class="font-inter text-sm text-body-text hover:text-white transition-colors">Production</a>
+                        <a href="index.html#services" class="font-inter text-sm text-body-text hover:text-white transition-colors">Services</a>
+                        <a href="index.html#contact" class="font-inter text-sm text-body-text hover:text-white transition-colors">Contact</a>
+                    </div>
+
+                    <!-- Footer Bottom Row -->
+                    <div class="border-t border-white/10 mt-8">
+                        <div class="max-w-7xl mx-auto px-6 py-6 flex items-center justify-between">
+                            <!-- Logo -->
+                            <img src="assets/logos/logo for webAsset 14.svg" alt="Sentinel Titans" class="h-12 w-auto">
+
+                            <!-- Social Icons -->
+                            <div class="flex gap-6">
+                                <a href="#" aria-label="Facebook" class="text-body-text hover:text-white transition-colors">
+                                    <!-- Facebook Icon -->
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path d="M22.675 0h-21.35C.6 0 0 .6 0 1.337v21.326C0 23.4.6 24 1.325 24h11.494v-9.294H9.692V11.07h3.127V8.414c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.797.715-1.797 1.763v2.313h3.594l-.468 3.636h-3.126V24h6.127C23.4 24 24 23.4 24 22.663V1.337C24 .6 23.4 0 22.675 0z"/></svg>
+                                </a>
+                                <a href="#" aria-label="Instagram" class="text-body-text hover:text-white transition-colors">
+                                    <!-- Instagram Icon -->
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.354 3.608 1.329.974.975 1.266 2.242 1.328 3.608.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.062 1.366-.354 2.633-1.329 3.608-.975.974-2.242 1.266-3.608 1.328-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.366-.062-2.633-.354-3.608-1.329-.974-.975-1.266-2.242-1.328-3.608C2.175 15.584 2.163 15.204 2.163 12s.012-3.584.07-4.85c.062-1.366.354-2.633 1.329-3.608.975-.974 2.242-1.266 3.608-1.328C8.416 2.175 8.796 2.163 12 2.163zm0-2.163C8.741 0 8.332.015 7.052.072 5.771.13 4.67.423 3.691 1.402 2.713 2.38 2.42 3.481 2.362 4.762.305 6.042.29 6.452.29 12s.015 5.958.072 7.238c.058 1.281.351 2.382 1.329 3.36.978.978 2.079 1.271 3.36 1.329C8.332 23.985 8.741 24 12 24s3.668-.015 4.948-.072c1.281-.058 2.382-.351 3.36-1.329.978-.978 1.271-2.079 1.329-3.36.057-1.28.072-1.689.072-7.238s-.015-5.958-.072-7.238c-.058-1.281-.351-2.382-1.329-3.36-.978-.979-2.079-1.272-3.36-1.329C15.668.015 15.259 0 12 0z"/><path d="M12 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zm0 10.163a3.999 3.999 0 1 1 0-7.998 3.999 3.999 0 0 1 0 7.998z"/><circle cx="18.406" cy="5.594" r="1.44"/></svg>
+                                </a>
+                                <a href="#" aria-label="LinkedIn" class="text-body-text hover:text-white transition-colors">
+                                    <!-- LinkedIn Icon -->
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452H17.2v-5.569c0-1.328-.027-3.036-1.849-3.036-1.851 0-2.135 1.445-2.135 2.939v5.666H9.963V9h3.112v1.561h.045c.434-.82 1.49-1.684 3.07-1.684 3.281 0 3.882 2.161 3.882 4.971v6.604zM5.337 7.433a1.8 1.8 0 1 1 0-3.6 1.8 1.8 0 0 1 0 3.6zM6.556 20.452H4.119V9h2.437v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.226.792 24 1.771 24h20.451C23.2 24 24 23.226 24 22.271V1.729C24 .774 23.2 0 22.225 0z"/></svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+
+                <!-- JavaScript for Dynamic Content -->
+    <script>
+        // Specific vehicle data for Lexus LX600
+        const vehicleData = {
+            id: 'lexus-lx600',
+            name: 'Armored Lexus LX600',
+            category: 'suv',
+            categoryDisplay: 'Armored SUV',
+            images: [
+                'assets/images/All Vehicles/suvs/LEXUS 600/20250222_113047.jpg',
+                'assets/images/All Vehicles/suvs/LEXUS 600/20250222_112941.jpg',
+                'assets/images/All Vehicles/suvs/LEXUS 600/20250222_113014.jpg',
+                'assets/images/All Vehicles/suvs/LEXUS 600/20250222_113027.jpg',
+                'assets/images/All Vehicles/suvs/LEXUS 600/20250222_113104.jpg',
+                'assets/images/All Vehicles/suvs/LEXUS 600/20250222_113138.jpg',
+                'assets/images/All Vehicles/suvs/LEXUS 600/20250222_113157.jpg',
+                'assets/images/All Vehicles/suvs/LEXUS 600/20250222_113219.jpg',
+                'assets/images/All Vehicles/suvs/LEXUS 600/20250222_113246.jpg',
+                'assets/images/All Vehicles/suvs/LEXUS 600/20250222_113345.jpg',
+                'assets/images/All Vehicles/suvs/LEXUS 600/20250222_113357.jpg',
+                'assets/images/All Vehicles/suvs/LEXUS 600/20250222_113448.jpg',
+                'assets/images/All Vehicles/suvs/LEXUS 600/20250222_113512.jpg',
+                'assets/images/All Vehicles/suvs/LEXUS 600/20250222_113528.jpg',
+                'assets/images/All Vehicles/suvs/LEXUS 600/20250222_113537.jpg',
+                'assets/images/All Vehicles/suvs/LEXUS 600/20250222_113706.jpg',
+                'assets/images/All Vehicles/suvs/LEXUS 600/20250222_113710.jpg',
+                'assets/images/All Vehicles/suvs/LEXUS 600/20250222_113718.jpg',
+                'assets/images/All Vehicles/suvs/LEXUS 600/20250222_113721.jpg',
+                'assets/images/All Vehicles/suvs/LEXUS 600/20250222_113728.jpg',
+                'assets/images/All Vehicles/suvs/LEXUS 600/20250222_113731.jpg',
+                'assets/images/All Vehicles/suvs/LEXUS 600/20250222_113736.jpg',
+                'assets/images/All Vehicles/suvs/LEXUS 600/20250222_113800.jpg',
+                'assets/images/All Vehicles/suvs/LEXUS 600/20250222_113807.jpg',
+                'assets/images/All Vehicles/suvs/LEXUS 600/20250222_113815.jpg',
+                'assets/images/All Vehicles/suvs/LEXUS 600/20250222_113819.jpg',
+                'assets/images/All Vehicles/suvs/LEXUS 600/20250222_113823.jpg',
+                'assets/images/All Vehicles/suvs/LEXUS 600/20250222_113826.jpg',
+                'assets/images/All Vehicles/suvs/LEXUS 600/20250222_113939.jpg',
+                'assets/images/All Vehicles/suvs/LEXUS 600/20250222_113950.jpg',
+                'assets/images/All Vehicles/suvs/LEXUS 600/20250222_114013.jpg',
+                'assets/images/All Vehicles/suvs/LEXUS 600/20250222_114028.jpg',
+                'assets/images/All Vehicles/suvs/LEXUS 600/20250222_114112.jpg',
+                'assets/images/All Vehicles/suvs/LEXUS 600/20250222_114117.jpg'
+            ],
+            video: null,
+            specifications: {
+                'YEAR': '2024',
+                'MAKE': 'Lexus',
+                'MODEL': 'LX600',
+                'BODY': 'SUV',
+                'ARMOR LEVEL': 'B6+',
+                'TRANSMISSION': '10-Speed Automatic',
+                'ENGINE': '3.5L Twin-Turbo V6',
+                'HORSEPOWER': '409 HP',
+                'DRIVETRAIN': 'AWD',
+                'DIMENSIONS (MM)': '5100 x 1990 x 1880',
+                'WHEELBASE (MM)': '2850',
+                'SEATING CAPACITY': '7',
+                'FUEL CAPACITY': '80L',
+                'AVAILABILITY': 'In Stock'
+            }
+        };
+
+        // Similar cars data for SUV category
+        const similarCarsData = [
+            // Currently only Lexus LX600 exists in SUV category
+            // This will show "No similar vehicles available" message
+        ];
+
+        // Function to populate the page with vehicle data
+        function populateVehiclePage(data) {
+            // Set title and category
+            document.getElementById('vehicle-title').textContent = data.name;
+            document.getElementById('vehicle-category-text').textContent = data.categoryDisplay;
+            document.title = `${data.name} - Sentinel Titans`;
+
+            // Update category link (now the subtitle)
+            const categoryLink = document.getElementById('vehicle-category-link');
+            
+            if (data.category && data.categoryDisplay) {
+                categoryLink.href = `vehicles.html?category=${data.category}`;
+            }
+
+            // Set main image
+            if (data.images && data.images.length > 0) {
+                document.getElementById('main-image').src = data.images[0];
+                document.getElementById('main-image').alt = data.name;
+            }
+
+            // Populate thumbnails
+            const thumbnailGallery = document.getElementById('thumbnail-gallery');
+            thumbnailGallery.innerHTML = '';
+            
+            data.images.forEach((image, index) => {
+                const thumbnail = document.createElement('div');
+                thumbnail.className = 'flex-shrink-0';
+                
+                const img = document.createElement('img');
+                img.src = image;
+                img.alt = `${data.name} - Image ${index + 1}`;
+                img.className = 'w-20 h-20 object-cover rounded cursor-pointer hover:opacity-80 transition-opacity duration-200';
+                img.onclick = () => {
+                    document.getElementById('main-image').src = image;
+                };
+                
+                thumbnail.appendChild(img);
+                thumbnailGallery.appendChild(thumbnail);
+            });
+
+            // Populate specifications
+            const specsTable = document.getElementById('specs-table');
+            specsTable.innerHTML = '';
+            
+            Object.entries(data.specifications).forEach(([label, value]) => {
+                const specRow = document.createElement('div');
+                specRow.className = 'flex justify-between items-center py-2 border-b border-white/10';
+                
+                const labelSpan = document.createElement('span');
+                labelSpan.className = 'font-blacker font-medium text-white text-sm';
+                labelSpan.textContent = label;
+                
+                const valueSpan = document.createElement('span');
+                valueSpan.className = 'text-body-text text-sm';
+                valueSpan.textContent = value;
+                
+                specRow.appendChild(labelSpan);
+                specRow.appendChild(valueSpan);
+                specsTable.appendChild(specRow);
+            });
+
+            // Populate similar cars
+            populateSimilarCars();
+        }
+
+        // Function to populate similar cars section
+        function populateSimilarCars() {
+            const similarCarsGrid = document.getElementById('similar-cars-grid');
+            similarCarsGrid.innerHTML = '';
+            
+            // Filter similar cars (same category, exclude current vehicle)
+            const similarCars = similarCarsData.filter(car => 
+                car.id !== vehicleData.id && car.category === vehicleData.category
+            );
+            
+            // Show message if no similar cars
+            if (similarCars.length === 0) {
+                similarCarsGrid.innerHTML = `
+                    <div class="col-span-full text-center py-8">
+                        <p class="text-body-text">No similar vehicles available at the moment.</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            // Create similar car cards
+            similarCars.forEach(car => {
+                const carCard = document.createElement('div');
+                carCard.className = 'bg-white/5 border border-white/10 rounded-none overflow-hidden hover:border-white/20 transition-all duration-300 group cursor-pointer';
+                carCard.onclick = () => window.location.href = `${car.id}.html`;
+                
+                carCard.innerHTML = `
+                    <div class="aspect-[4/3] overflow-hidden">
+                        <img src="${car.images[0]}" alt="${car.name}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-blacker text-white text-lg mb-2 group-hover:text-white transition-colors duration-200">${car.name}</h3>
+                        <p class="text-body-text text-sm mb-3">${car.categoryDisplay}</p>
+                        <div class="inline-block bg-white/10 text-white text-xs px-2 py-1 rounded">
+                            ${car.specifications['ARMOR LEVEL'] || 'N/A'}
+                        </div>
+                    </div>
+                `;
+                
+                similarCarsGrid.appendChild(carCard);
+            });
+        }
+
+        // Initialize the page with vehicle data
+        document.addEventListener('DOMContentLoaded', function() {
+            populateVehiclePage(vehicleData);
+        });
+    </script>
+</body>
+</html>

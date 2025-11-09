@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sentinel Titans</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/icons/Favicon.ico">
+    <!-- Additional favicon formats (optional - will fallback to Favicon.ico if missing) -->
+    <!-- <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32x32.png"> -->
+    <!-- <link rel="icon" type="image/png" sizes="16x16" href="assets/icons/favicon-16x16.png"> -->
+    <!-- <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png"> -->
+    
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'blacker': ['Blacker', 'serif'],
+                        'inter': ['Inter', 'sans-serif']
+                    },
+                    colors: {
+                        'primary-bg': '#100E0C',
+                        'body-text': '#C7C7C7'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-primary-bg text-white">
+    <!-- Navigation Bar -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-transform duration-300 ease-in-out">
+        <div class="max-w-7xl mx-auto px-2 py-4">
+            <div class="flex items-center justify-between">
+                <!-- Logo -->
+                <div class="flex-shrink-0">
+                    <a href="index.html">
+                        <img src="assets/logos/logo for webAsset 14.svg" alt="Sentinel Titans" class="h-12 w-auto">
+                    </a>
+                </div>
+                
+                <!-- Navigation Items -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="font-inter text-white hover:text-white transition-colors duration-200 text-base">Home</a>
+                    <a href="#company" class="font-inter text-gray-300 hover:text-white transition-colors duration-200 text-base">Company</a>
+                    <div class="relative group">
+                        <a href="vehicles.html" class="font-inter text-gray-300 hover:text-white transition-colors duration-200 text-base flex items-center cursor-pointer focus:outline-none">
+                            Vehicles
+                            <svg class="ml-1 w-4 h-4 text-gray-400 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                        </a>
+                        <!-- Mega Menu -->
+                        <div class="mega-menu absolute left-0 top-full mt-7 bg-primary-bg border-t border-white/10 shadow-lg opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-opacity duration-200 z-50" style="width: 100vw; left: 50%; margin-left: calc(-50vw + 2rem);">
+                                                            <div class="max-w-7xl mx-auto px-12 py-8">
+                                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-x-20 gap-y-16 items-start">
+                                                          <!-- ARMORED SUV -->
+                              <div class="self-start">
+                                <span class="block font-blacker text-base text-white tracking-widest mb-2">Armored SUV</span>
+                                <ul class="space-y-1 ml-2">
+                                    <li><a href="lexus-lx600.html" class="block font-inter text-xs text-body-text/85 hover:text-white transition-colors">Armored Lexus LX600</a></li>
+                                    <li><a href="gwagon.html" class="block font-inter text-xs text-body-text/85 hover:text-white transition-colors">Armored Mercedes G-Wagon</a></li>
+                                    <li><a href="vehicles.html" class="block font-inter text-xs text-body-text/85 hover:text-white transition-colors">Browse All Vehicles</a></li>
+                                </ul>
+                            </div>
+                                                          <!-- ARMORED SEDAN -->
+                              <div class="self-start">
+                                <span class="block font-blacker text-base text-white tracking-widest mb-2">Armored Sedan</span>
+                                <ul class="space-y-1 ml-2">
+                                    <li><a href="vehicles.html" class="block font-inter text-xs text-body-text/85 hover:text-white transition-colors">Browse All Vehicles</a></li>
+                                </ul>
+                            </div>
+                                                          <!-- ARMORED BUS -->
+                              <div class="self-start">
+                                <span class="block font-blacker text-base text-white tracking-widest mb-2">Armored Bus</span>
+                                <ul class="space-y-1 ml-2">
+                                    <li><a href="vehicles.html" class="block font-inter text-xs text-body-text/85 hover:text-white transition-colors">Browse All Vehicles</a></li>
+                                </ul>
+                            </div>
+                                                          <!-- ARMORED APC -->
+                              <div class="self-start">
+                                <span class="block font-blacker text-base text-white tracking-widest mb-2">Armored APC</span>
+                                <ul class="space-y-1 ml-2">
+                                    <li><a href="vehicles.html" class="block font-inter text-xs text-body-text/85 hover:text-white transition-colors">Browse All Vehicles</a></li>
+                                </ul>
+                            </div>
+                                                          <!-- CASH IN TRANSIT -->
+                              <div class="self-start">
+                                <span class="block font-blacker text-base text-white tracking-widest mb-2">Cash in Transit</span>
+                                <ul class="space-y-1 ml-2">
+                                    <li><a href="tlc-79-moneybox.html" class="block font-inter text-xs text-body-text/85 hover:text-white transition-colors">Toyota Land Cruiser 79 Money Box</a></li>
+                                    <li><a href="vehicles.html" class="block font-inter text-xs text-body-text/85 hover:text-white transition-colors">Browse All Vehicles</a></li>
+                                </ul>
+                            </div>
+                            <!-- ARMORED PICKUP TRUCKS -->
+                            <div class="self-start">
+                                <span class="block font-blacker text-base text-white tracking-widest mb-2">Armored Pickup Trucks</span>
+                                <ul class="space-y-1 ml-2">
+                                    <li><a href="toyota-tlc78.html" class="block font-inter text-xs text-body-text/85 hover:text-white transition-colors">Toyota Land Cruiser 78</a></li>
+                                    <li><a href="toyota-tlc79.html" class="block font-inter text-xs text-body-text/85 hover:text-white transition-colors">Toyota Land Cruiser 79</a></li>
+                                    <li><a href="vehicles.html" class="block font-inter text-xs text-body-text/85 hover:text-white transition-colors">Browse All Vehicles</a></li>
+                                </ul>
+                            </div>
+                                                          <!-- ARMORED LUXURY -->
+                              <div class="self-start">
+                                <span class="block font-blacker text-base text-white tracking-widest mb-2">Armored Luxury</span>
+                                <ul class="space-y-1 ml-2">
+                                    <li><a href="vehicles.html" class="block font-inter text-xs text-body-text/85 hover:text-white transition-colors">Browse All Vehicles</a></li>
+                                </ul>
+                            </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#production" class="font-inter text-gray-300 hover:text-white transition-colors duration-200 text-base">Production</a>
+                    <a href="#services" class="font-inter text-gray-300 hover:text-white transition-colors duration-200 text-base">Services</a>
+                    <a href="#contact" class="font-inter text-gray-300 hover:text-white transition-colors duration-200 text-base">Contact</a>
+                </div>
+                
+                <!-- Get in Touch Button with Dropdown -->
+                <div class="relative group flex-shrink-0">
+                    <button class="get-in-touch-btn font-blacker font-medium text-white border border-white px-3 md:px-6 py-3 flex items-center justify-center hover:bg-white hover:text-primary-bg transition-all duration-300">
+                        <!-- Phone Icon shown on mobile -->
+                        <svg class="w-5 h-5 md:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.95.68l1.02 3.06a1 1 0 01-.23 1.03l-2.21 2.21a16.05 16.05 0 006.06 6.06l2.21-2.21a1 1 0 011.03-.23l3.06 1.02a1 1 0 01.68.95V19a2 2 0 01-2 2h-1C9.163 21 3 14.837 3 7V5z" />
+                        </svg>
+                        <!-- Text label shown on medium and larger screens -->
+                        <span class="hidden md:inline">Get in Touch</span>
+                    </button>
+                    <!-- Dropdown -->
+                    <div class="absolute right-0 top-full w-56 bg-primary-bg border border-white/10 p-4 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-opacity duration-200 z-50 space-y-2">
+                        <a href="tel:+97143434772" class="block font-inter text-sm text-white hover:text-gray-300 transition-colors">+971&nbsp;43&nbsp;43&nbsp;4772</a>
+                        <a href="tel:+971545637533" class="block font-inter text-sm text-white hover:text-gray-300 transition-colors">+971&nbsp;54&nbsp;563&nbsp;7533</a>
+                        <a href="mailto:info@sentinel-titans.com" class="block font-inter text-sm text-white hover:text-gray-300 transition-colors">info@sentinel-titans.com</a>
+                    </div>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-white focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="md:hidden hidden mt-4 pb-4">
+                <div class="flex flex-col space-y-4">
+                    <a href="#home" class="font-inter text-white hover:text-gray-300 transition-colors duration-200">Home</a>
+                    <a href="#company" class="font-inter text-white hover:text-gray-300 transition-colors duration-200">Company</a>
+                    <a href="vehicles.html" class="font-inter text-white hover:text-gray-300 transition-colors duration-200">Vehicles</a>
+                    <a href="#production" class="font-inter text-white hover:text-gray-300 transition-colors duration-200">Production</a>
+                    <a href="#services" class="font-inter text-white hover:text-gray-300 transition-colors duration-200">Services</a>
+                    <a href="#contact" class="font-inter text-white hover:text-gray-300 transition-colors duration-200">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="pt-20">
+        <!-- Hero Section with Slideshow -->
+        <section id="home" class="bg-primary-bg relative overflow-hidden" style="height: calc(100vh - 80px);">
+            <div class="slideshow-container relative w-full h-full">
+                <!-- Slide 1 -->
+                <div class="slide active">
+                    <div class="slide-bg absolute inset-0" style="background-image: url('assets/images/slideshow/AdobeStock_606249740.jpeg')"></div>
+                </div>
+
+                <!-- Slide 2 -->
+                <div class="slide">
+                    <div class="slide-bg absolute inset-0" style="background-image: url('assets/images/slideshow/AdobeStock_284575297.jpeg')"></div>
+                </div>
+
+                <!-- Slide 3 -->
+                <div class="slide">
+                    <div class="slide-bg absolute inset-0" style="background-image: url('assets/images/slideshow/AdobeStock_732506762.jpeg')"></div>
+                </div>
+
+                <!-- Navigation Arrows -->
+                <button class="prev-slide absolute left-4 top-1/2 transform -translate-y-1/2 z-20 text-white hover:text-gray-300 transition-colors duration-200">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                    </svg>
+                </button>
+                <button class="next-slide absolute right-4 top-1/2 transform -translate-y-1/2 z-20 text-white hover:text-gray-300 transition-colors duration-200">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                    </svg>
+                </button>
+
+                <!-- Slide Indicators -->
+                <div class="slide-indicators absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 flex space-x-3">
+                    <button class="indicator active w-3 h-3 rounded-full bg-white transition-all duration-300" data-slide="0"></button>
+                    <button class="indicator w-3 h-3 rounded-full bg-white/50 hover:bg-white/70 transition-all duration-300" data-slide="1"></button>
+                    <button class="indicator w-3 h-3 rounded-full bg-white/50 hover:bg-white/70 transition-all duration-300" data-slide="2"></button>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Section 2 -->
+        <section id="company" class="min-h-screen bg-primary-bg flex items-center">
+            <div class="max-w-7xl mx-auto px-6 py-16">
+                <div class="grid grid-cols-1 lg:grid-cols-2 items-center gap-12">
+                                         <!-- Content Left -->
+                    <div class="space-y-6">
+                        <!-- Subtitle -->
+                        <p class="font-inter text-body-text opacity-95 text-xs font-normal tracking-wide uppercase mb-0">
+                            Armored Cars & Bulletproof Vehicles
+                        </p>
+                        
+                        <!-- Title -->
+                        <h2 class="font-blacker text-4xl lg:text-5xl font-normal text-white leading-tight -mt-6">
+                            Drive with unmatched confidence
+                        </h2>
+                        
+                        <!-- Body Text -->
+                        <p class="font-inter text-body-text text-sm leading-relaxed">
+                            Sentinel Titans Armored Vehicle Manufacturing is a UAE-based leader in designing and producing armored vehicles—from executive SUVs and luxury sedans to special-purpose vehicles, personnel carriers, and cash-in-transit units. We supply banks, law enforcement, corporations, and individuals worldwide via our global sales offices and after-sale workshops. Upholding the highest standards in innovation, design, and quality management, our vehicles deliver unmatched security and protection.
+                        </p>
+                        
+                        <!-- Company Brochure Button -->
+                        <div class="pt-4">
+                            <button class="company-brochure-btn px-8">
+                                Company Brochure
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Image Right -->
+                    <div class="relative">
+                        <div class="aspect-square lg:aspect-auto lg:h-96 rounded-lg overflow-hidden">
+                            <img src="assets/images/slideshow/AdobeStock_381615500.jpeg" alt="Armored Vehicle" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Production Section -->
+        <section id="production" class="min-h-screen bg-primary-bg flex items-center">
+            <div class="max-w-7xl mx-auto px-6 py-16">
+                <div class="grid grid-cols-1 lg:grid-cols-2 items-center gap-12">
+                    <!-- Content Left -->
+                    <div class="space-y-6">
+                        <!-- Subtitle -->
+                        <p class="font-inter text-body-text opacity-95 text-xs font-normal tracking-wide uppercase mb-0">
+                            State of the art manufacturing
+                        </p>
+                        
+                        <!-- Title -->
+                        <h2 class="font-blacker text-4xl lg:text-5xl font-normal text-white leading-tight -mt-6">
+                            Production
+                        </h2>
+                        
+                        <!-- Body Text -->
+                        <p class="font-inter text-body-text text-sm leading-relaxed">
+                            SENTINEL-TITANS Armored Vehicle Manufacturing operates within Dubai, UAE. Strategically positioned to promptly address the safety and security requirements of our esteemed customers. As a "quality-first" enterprise, SENTINEL-TITANS is committed to refining existing technologies and seamlessly integrating them into the design of contemporary armored vehicles and law enforcement solutions. Collaborating with leading material suppliers, SENTINEL-TITANS endeavors to deliver the latest technologies to its discerning clientele.
+                        </p>
+                        
+                        <p class="font-inter text-body-text text-sm leading-relaxed">
+                            Our state-of-the-art facilities feature cutting-edge bending systems that preserve the metal's structural integrity, ensuring it serves its intended purpose. Modern equipment, coupled with programmable software, reduces setup times, enhances efficiency, and elevates the quality of our metal products—a paramount consideration in our mission to safeguard lives.
+                        </p>
+                    </div>
+                    
+                    <!-- Image Right -->
+                    <div class="relative">
+                        <div class="aspect-square lg:aspect-auto lg:h-96 rounded-lg overflow-hidden">
+                            <img src="assets/images/production/Dubai.jpeg" alt="Dubai Manufacturing Facility" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Section 3 -->
+        <section id="services" class="min-h-screen bg-primary-bg flex items-center">
+            <div class="max-w-7xl mx-auto px-6 py-16">
+                <!-- Section Header -->
+                <div class="text-center mb-16">
+                    <!-- Subtitle -->
+                    <p class="font-inter text-body-text opacity-95 text-xs font-normal tracking-wide uppercase mb-2">
+                        Unique Vehicle Armoring solutions
+                    </p>
+                    
+                    <!-- Title -->
+                    <h2 class="font-blacker text-4xl lg:text-5xl font-normal text-white leading-tight">
+                        Where Luxury meets safety
+                    </h2>
+                </div>
+                
+                <!-- Cards Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Card 1 -->
+                    <div class="bg-transparent border border-gray-700 rounded-none overflow-hidden group hover:border-gray-500 transition-all duration-300">
+                        <!-- Image -->
+                        <div class="aspect-video overflow-hidden">
+                            <img src="assets/images/section 3/Wide range of Armored vehicles.jpeg" alt="Executive Protection" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                        </div>
+                        
+                        <!-- Content -->
+                        <div class="p-6 space-y-4">
+                            <!-- Card Title -->
+                            <h3 class="font-blacker text-xl font-normal text-white">
+                                Wide range of Armored vehicles
+                            </h3>
+                            
+                            <!-- Card Body Text -->
+                            <p class="font-inter text-body-text text-sm leading-relaxed">
+                                Sentinel Titans Armored Vehicles manufactures armored SUVs, luxury cars, limousines, tactical and cash-in-transit vehicles. We also create custom solutions for global commercial and institutional clients, driven by a commitment to excellence, innovation, and uncompromising security.
+                            </p>
+                            
+                            <!-- Explore Button -->
+                            <div class="pt-2">
+                                <button class="explore-btn font-blacker font-medium text-white border border-white px-6 py-2 hover:bg-white hover:text-primary-bg transition-all duration-300">
+                                    Explore
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Card 2 -->
+                    <div class="bg-transparent border border-gray-700 rounded-none overflow-hidden group hover:border-gray-500 transition-all duration-300">
+                        <!-- Image -->
+                        <div class="aspect-video overflow-hidden">
+                            <img src="assets/images/section 3/Unique Performance and Features.jpeg" alt="Law Enforcement" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                        </div>
+                        
+                        <!-- Content -->
+                        <div class="p-6 space-y-4">
+                            <!-- Card Title -->
+                            <h3 class="font-blacker text-xl font-normal text-white">
+                                Unique Performance and Features
+                            </h3>
+                            
+                            <!-- Card Body Text -->
+                            <p class="font-inter text-body-text text-sm leading-relaxed">
+                                Sentinel Titans succeeds through expertly crafted vehicles offering top-tier performance, and unique features. From monogrammed leather interiors to custom electronics and 120″ limo stretches, we exceed expectations with luxury and innovation, delivering solutions that meet the highest standards of our discerning clientele.
+                            </p>
+                            
+                            <!-- Explore Button -->
+                            <div class="pt-2">
+                                <button class="explore-btn font-blacker font-medium text-white border border-white px-6 py-2 hover:bg-white hover:text-primary-bg transition-all duration-300">
+                                    Explore
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Card 3 -->
+                    <div class="bg-transparent border border-gray-700 rounded-none overflow-hidden group hover:border-gray-500 transition-all duration-300">
+                        <!-- Image -->
+                        <div class="aspect-video overflow-hidden">
+                            <img src="assets/images/section 3/Highest Quality Components.jpeg" alt="Cash-in-Transit" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                        </div>
+                        
+                        <!-- Content -->
+                        <div class="p-6 space-y-4">
+                            <!-- Card Title -->
+                            <h3 class="font-blacker text-xl font-normal text-white">
+                                Highest Quality Components
+                            </h3>
+                            
+                            <!-- Card Body Text -->
+                            <p class="font-inter text-body-text text-sm leading-relaxed">
+                                Sentinel Titans  vehicles are built with composite materials and advanced metal plating for superior protection against a wide range of threats—from blunt force to firearms and explosives. Each vehicle is engineered with a comprehensive defense strategy, ensuring maximum safety, resilience, and occupant security in any scenario.
+                            </p>
+                            
+                            <!-- Explore Button -->
+                            <div class="pt-2">
+                                <button class="explore-btn font-blacker font-medium text-white border border-white px-6 py-2 hover:bg-white hover:text-primary-bg transition-all duration-300">
+                                    Explore
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+ 
+        <!-- Section 4 -->
+        <section id="vehicles" class="min-h-screen bg-primary-bg flex items-center">
+            <div class="max-w-4xl mx-auto px-6 py-16 w-full">
+                <!-- Header -->
+                <div class="text-center mb-16">
+                    <p class="font-inter text-body-text opacity-95 text-xs font-normal tracking-wide uppercase mb-2">Browse our inventory</p>
+                    <h2 class="font-blacker text-4xl lg:text-5xl font-normal text-white leading-tight">Featured Armored Vehicles</h2>
+
+                    <!-- Vehicle Type Tabs -->
+                    <div id="vehicle-tabs" class="flex flex-wrap justify-center gap-6 mt-6">
+                        <button class="vehicle-tab active font-inter text-sm uppercase tracking-wide border-b-2 pb-1 text-[#B30000] border-[#B30000]">SUVs</button>
+                        <button class="vehicle-tab font-inter text-body-text text-sm uppercase tracking-wide border-b-2 border-transparent hover:border-white pb-1">Sedans</button>
+                        <button class="vehicle-tab font-inter text-body-text text-sm uppercase tracking-wide border-b-2 border-transparent hover:border-white pb-1">Trucks</button>
+                        <button class="vehicle-tab font-inter text-body-text text-sm uppercase tracking-wide border-b-2 border-transparent hover:border-white pb-1">Limousines</button>
+                        <button class="vehicle-tab font-inter text-body-text text-sm uppercase tracking-wide border-b-2 border-transparent hover:border-white pb-1">Cash in Transit</button>
+                        <button class="vehicle-tab font-inter text-body-text text-sm uppercase tracking-wide border-b-2 border-transparent hover:border-white pb-1">Special Purpose</button>
+                    </div>
+                </div>
+
+                <!-- Featured Vehicles Container -->
+                <div id="featured-vehicles-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Vehicle cards will be dynamically generated here -->
+                </div>
+    </div>
+        </section>
+        
+        <!-- Section 5 -->
+        <section id="why-choose" class="min-h-screen bg-primary-bg flex items-center">
+            <div class="max-w-7xl mx-auto px-6 py-16">
+                <!-- Section Header -->
+                <div class="text-center mb-16">
+                    <h2 class="font-blacker text-4xl lg:text-5xl font-normal text-white leading-tight">
+                        Why choose sentinel titans?
+                    </h2>
+                </div>
+                
+                <!-- Content Grid -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center border border-gray-600 rounded-lg overflow-hidden">
+                    <!-- Content Left -->
+                    <div class="space-y-6 p-8">
+                        <!-- Title -->
+                        <h3 class="font-blacker text-3xl lg:text-4xl font-normal text-white leading-tight">
+                            Quality armoring and assembly
+                        </h3>
+                        
+                        <!-- Body Text -->
+                        <p class="font-inter text-body-text text-sm leading-relaxed">
+                            Sentinel Titans Armored Vehicle Manufacturing boasts nearly two decades of expertise in the production of bulletproof vehicles. Throughout this extensive period, our commitment to excellence has driven us to continually evolve our armoring techniques in response to advancing technologies. Our delivery of high-quality armoring and meticulous assembly is made possible by our professional staff, organizational depth, steadfast safety culture, and extensive industry experience. Sentinel Titans remains dedicated to upholding the highest standards in armored vehicle manufacturing, ensuring the safety and satisfaction of our valued clientele.
+                        </p>
+                    </div>
+                    
+                    <!-- Image Right -->
+                    <div class="relative">
+                        <div class="aspect-square lg:aspect-auto lg:h-96 overflow-hidden">
+                            <img src="assets/images/why-choose-sentinel-titans/AdobeStock_602439886.jpeg" alt="Quality Armoring" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Content Block 2 -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center border border-gray-600 rounded-lg overflow-hidden mt-16">
+                    <!-- Image Left -->
+                    <div class="relative order-1 lg:order-none">
+                        <div class="aspect-square lg:aspect-auto lg:h-96 overflow-hidden">
+                            <!-- Replace with appropriate image -->
+                            <img src="assets/images/why-choose-sentinel-titans/AdobeStock_306011495.jpeg" alt="Innovation Technology" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+
+                    <!-- Content Right -->
+                    <div class="space-y-6 p-8 order-2 lg:order-none">
+                        <!-- Title -->
+                        <h3 class="font-blacker text-3xl lg:text-4xl font-normal text-white leading-tight">
+                            Innovation and technology
+                        </h3>
+
+                        <!-- Body Text -->
+                        <p class="font-inter text-body-text text-sm leading-relaxed">
+                            Sentinel Titans employs the most advanced line of CNC cutting and bending machines provided by the global leader in steel processing systems. The integration of cutting-edge technologies in laser cutting and bending, carefully designed to preserve the metal structure, underscores our capability to deliver armored vehicles that not only meet but exceed standards in safety and security. SENTINEL-TITANS remains at the forefront of technological innovation, ensuring that our manufacturing processes adhere to the highest quality and safety standards in the production of armored vehicles.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Content Block 3 -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center border border-gray-600 rounded-lg overflow-hidden mt-16">
+                    <!-- Content Left -->
+                    <div class="space-y-6 p-8">
+                        <!-- Title -->
+                        <h3 class="font-blacker text-3xl lg:text-4xl font-normal text-white leading-tight">
+                            Experienced craftsmanship
+                        </h3>
+
+                        <!-- Body Text -->
+                        <p class="font-inter text-body-text text-sm leading-relaxed">
+                            All Sentinel Titans Armored Vehicle Manufacturing employees embody a cadre of highly skilled, well-trained, and seasoned professionals. Our engineers boast a demonstrated track record of conceiving and executing efficient and innovative solutions, drawing upon their extensive expertise across all facets of the ballistic protection industry. Their proficiency includes in-depth knowledge of potential threats and the corresponding countermeasures, ensuring that SENTINEL-TITANS remains at the forefront of delivering comprehensive and cutting-edge solutions in armored vehicle design and manufacturing.
+                        </p>
+                    </div>
+
+                    <!-- Image Right -->
+                    <div class="relative">
+                        <div class="aspect-square lg:aspect-auto lg:h-96 overflow-hidden">
+                            <!-- Replace with appropriate image -->
+                            <img src="assets/images/why-choose-sentinel-titans/AdobeStock_413768035.jpeg" alt="Experienced Craftsmanship" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Content Block 4 -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center border border-gray-600 rounded-lg overflow-hidden mt-16">
+                    <!-- Image Left -->
+                    <div class="relative order-1 lg:order-none">
+                        <div class="aspect-square lg:aspect-auto lg:h-96 overflow-hidden">
+                            <!-- Replace with appropriate image -->
+                            <img src="assets/images/why-choose-sentinel-titans/AdobeStock_239138268.jpeg" alt="Quality Armoring Materials" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+
+                    <!-- Content Right -->
+                    <div class="space-y-6 p-8 order-2 lg:order-none">
+                        <!-- Title -->
+                        <h3 class="font-blacker text-3xl lg:text-4xl font-normal text-white leading-tight">
+                            Highest quality armoring materials
+                        </h3>
+
+                        <!-- Body Text -->
+                        <p class="font-inter text-body-text text-sm leading-relaxed">
+                            At Sentine Titans, we exclusively utilize certified materials in the construction of our armored vehicles. Rigorous testing of all components is conducted both by independent laboratories and our proficient staff at the shooting range. Our commitment to quality is underscored by certifications obtained from various international organizations, a testament to our dedication to establishing SENTINEL-TITANS as a reputable and well-established armored vehicle manufacturer. This unwavering commitment to certification and stringent testing ensures that our armored vehicles consistently meet and surpass industry standards for safety and reliability.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+ 
+        <!-- Section 6: Industry Partners -->
+        <section id="partners" class="min-h-screen bg-primary-bg flex flex-col justify-center">
+            <div class="max-w-7xl mx-auto px-6 py-16 text-center">
+                <!-- Subtitle -->
+                <p class="font-inter text-body-text opacity-95 text-xs tracking-wide uppercase mb-2">
+                    Positive collaboration on a global scale
+                </p>
+                <!-- Title -->
+                <h2 class="font-blacker text-4xl lg:text-5xl font-normal text-white leading-tight">
+                    Our Industry Partners
+                </h2>
+            </div>
+
+            <!-- Brands Ticker -->
+            <div class="ticker-wrapper overflow-hidden py-8 relative">
+                <div class="brands-slider">
+                    <!-- Brand Logos (duplicated for seamless loop) -->
+                    <img src="assets/images/brands/ford-svgrepo-com.svg" alt="Ford" class="brand-logo">
+                    <img src="assets/images/brands/gmc-svgrepo-com.svg" alt="GMC" class="brand-logo">
+                    <img src="assets/images/brands/ram-svgrepo-com.svg" alt="RAM" class="brand-logo">
+                    <img src="assets/images/brands/jeep-alt-svgrepo-com.svg" alt="Jeep" class="brand-logo">
+                    <img src="assets/images/brands/land-rover-svgrepo-com.svg" alt="Land Rover" class="brand-logo">
+                    <img src="assets/images/brands/mazda-alt-svgrepo-com.svg" alt="Mazda" class="brand-logo">
+                    <img src="assets/images/brands/mercedes-benz-alt-svgrepo-com.svg" alt="Mercedes" class="brand-logo">
+                    <img src="assets/images/brands/lexus-svgrepo-com.svg" alt="Lexus" class="brand-logo">
+                    <img src="assets/images/brands/jaguar-alt-svgrepo-com.svg" alt="Jaguar" class="brand-logo">
+
+                    <!-- Duplicate set -->
+                    <img src="assets/images/brands/ford-svgrepo-com.svg" alt="Ford" class="brand-logo">
+                    <img src="assets/images/brands/gmc-svgrepo-com.svg" alt="GMC" class="brand-logo">
+                    <img src="assets/images/brands/ram-svgrepo-com.svg" alt="RAM" class="brand-logo">
+                    <img src="assets/images/brands/jeep-alt-svgrepo-com.svg" alt="Jeep" class="brand-logo">
+                    <img src="assets/images/brands/land-rover-svgrepo-com.svg" alt="Land Rover" class="brand-logo">
+                    <img src="assets/images/brands/mazda-alt-svgrepo-com.svg" alt="Mazda" class="brand-logo">
+                    <img src="assets/images/brands/mercedes-benz-alt-svgrepo-com.svg" alt="Mercedes" class="brand-logo">
+                    <img src="assets/images/brands/lexus-svgrepo-com.svg" alt="Lexus" class="brand-logo">
+                    <img src="assets/images/brands/jaguar-alt-svgrepo-com.svg" alt="Jaguar" class="brand-logo">
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="min-h-screen bg-primary-bg flex items-center justify-center py-20">
+            <div class="max-w-6xl mx-auto px-6 w-full">
+                <!-- Section Header -->
+                <div class="text-center mb-16">
+                    <h2 class="font-blacker text-4xl md:text-5xl text-white mb-4">Get In Touch</h2>
+                    <p class="font-inter text-body-text text-sm max-w-2xl mx-auto">
+                        Ready to discuss your armored vehicle needs? Contact us today for expert consultation and personalized solutions.
+                    </p>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="bg-white/5 border border-white/10 p-8 rounded-none">
+                    <h3 class="font-blacker text-2xl text-white mb-6">Send us a message</h3>
+                    <form class="space-y-6" onsubmit="event.preventDefault();">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="firstName" class="block font-inter text-sm text-body-text mb-2">First Name *</label>
+                                <input type="text" id="firstName" name="firstName" required 
+                                       class="w-full px-4 py-3 bg-white/5 border border-white/10 text-white placeholder-gray-400 focus:outline-none focus:border-white/30 transition-colors">
+                            </div>
+                            <div>
+                                <label for="lastName" class="block font-inter text-sm text-body-text mb-2">Last Name *</label>
+                                <input type="text" id="lastName" name="lastName" required 
+                                       class="w-full px-4 py-3 bg-white/5 border border-white/10 text-white placeholder-gray-400 focus:outline-none focus:border-white/30 transition-colors">
+                            </div>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="email" class="block font-inter text-sm text-body-text mb-2">Email Address *</label>
+                                <input type="email" id="email" name="email" required 
+                                       class="w-full px-4 py-3 bg-white/5 border border-white/10 text-white placeholder-gray-400 focus:outline-none focus:border-white/30 transition-colors">
+                            </div>
+                            <div>
+                                <label for="phone" class="block font-inter text-sm text-body-text mb-2">Phone Number</label>
+                                <div class="flex">
+                                    <select id="countryCode" name="countryCode" 
+                                            class="w-24 px-3 py-3 bg-white/5 border border-white/10 text-white focus:outline-none focus:border-white/30 transition-colors appearance-none bg-[url('data:image/svg+xml;charset=US-ASCII,<svg width="12" height="8" xmlns="http://www.w3.org/2000/svg"><path d="M1 1l5 5 5-5" stroke="white" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>')] bg-no-repeat bg-right-2 bg-center border-r-0">
+                                        <option value="+971" class="bg-primary-bg text-white">+971</option>
+                                        <option value="+1" class="bg-primary-bg text-white">+1</option>
+                                        <option value="+44" class="bg-primary-bg text-white">+44</option>
+                                        <option value="+33" class="bg-primary-bg text-white">+33</option>
+                                        <option value="+49" class="bg-primary-bg text-white">+49</option>
+                                        <option value="+39" class="bg-primary-bg text-white">+39</option>
+                                        <option value="+34" class="bg-primary-bg text-white">+34</option>
+                                        <option value="+31" class="bg-primary-bg text-white">+31</option>
+                                        <option value="+32" class="bg-primary-bg text-white">+32</option>
+                                        <option value="+46" class="bg-primary-bg text-white">+46</option>
+                                        <option value="+47" class="bg-primary-bg text-white">+47</option>
+                                        <option value="+45" class="bg-primary-bg text-white">+45</option>
+                                        <option value="+358" class="bg-primary-bg text-white">+358</option>
+                                        <option value="+48" class="bg-primary-bg text-white">+48</option>
+                                        <option value="+420" class="bg-primary-bg text-white">+420</option>
+                                        <option value="+43" class="bg-primary-bg text-white">+43</option>
+                                        <option value="+41" class="bg-primary-bg text-white">+41</option>
+                                        <option value="+36" class="bg-primary-bg text-white">+36</option>
+                                        <option value="+30" class="bg-primary-bg text-white">+30</option>
+                                        <option value="+351" class="bg-primary-bg text-white">+351</option>
+                                        <option value="+380" class="bg-primary-bg text-white">+380</option>
+                                        <option value="+7" class="bg-primary-bg text-white">+7</option>
+                                        <option value="+90" class="bg-primary-bg text-white">+90</option>
+                                        <option value="+86" class="bg-primary-bg text-white">+86</option>
+                                        <option value="+81" class="bg-primary-bg text-white">+81</option>
+                                        <option value="+82" class="bg-primary-bg text-white">+82</option>
+                                        <option value="+91" class="bg-primary-bg text-white">+91</option>
+                                        <option value="+65" class="bg-primary-bg text-white">+65</option>
+                                        <option value="+60" class="bg-primary-bg text-white">+60</option>
+                                        <option value="+66" class="bg-primary-bg text-white">+66</option>
+                                        <option value="+84" class="bg-primary-bg text-white">+84</option>
+                                        <option value="+62" class="bg-primary-bg text-white">+62</option>
+                                        <option value="+63" class="bg-primary-bg text-white">+63</option>
+                                        <option value="+852" class="bg-primary-bg text-white">+852</option>
+                                        <option value="+886" class="bg-primary-bg text-white">+886</option>
+                                        <option value="+960" class="bg-primary-bg text-white">+960</option>
+                                        <option value="+961" class="bg-primary-bg text-white">+961</option>
+                                        <option value="+962" class="bg-primary-bg text-white">+962</option>
+                                        <option value="+963" class="bg-primary-bg text-white">+963</option>
+                                        <option value="+964" class="bg-primary-bg text-white">+964</option>
+                                        <option value="+967" class="bg-primary-bg text-white">+967</option>
+                                        <option value="+970" class="bg-primary-bg text-white">+970</option>
+                                        <option value="+972" class="bg-primary-bg text-white">+972</option>
+                                        <option value="+975" class="bg-primary-bg text-white">+975</option>
+                                        <option value="+976" class="bg-primary-bg text-white">+976</option>
+                                        <option value="+977" class="bg-primary-bg text-white">+977</option>
+                                        <option value="+992" class="bg-primary-bg text-white">+992</option>
+                                        <option value="+993" class="bg-primary-bg text-white">+993</option>
+                                        <option value="+994" class="bg-primary-bg text-white">+994</option>
+                                        <option value="+995" class="bg-primary-bg text-white">+995</option>
+                                        <option value="+996" class="bg-primary-bg text-white">+996</option>
+                                        <option value="+998" class="bg-primary-bg text-white">+998</option>
+                                        <option value="+850" class="bg-primary-bg text-white">+850</option>
+                                        <option value="+853" class="bg-primary-bg text-white">+853</option>
+                                        <option value="+855" class="bg-primary-bg text-white">+855</option>
+                                        <option value="+856" class="bg-primary-bg text-white">+856</option>
+                                        <option value="+880" class="bg-primary-bg text-white">+880</option>
+                                        <option value="+670" class="bg-primary-bg text-white">+670</option>
+                                        <option value="+672" class="bg-primary-bg text-white">+672</option>
+                                        <option value="+673" class="bg-primary-bg text-white">+673</option>
+                                        <option value="+674" class="bg-primary-bg text-white">+674</option>
+                                        <option value="+675" class="bg-primary-bg text-white">+675</option>
+                                        <option value="+676" class="bg-primary-bg text-white">+676</option>
+                                        <option value="+677" class="bg-primary-bg text-white">+677</option>
+                                        <option value="+678" class="bg-primary-bg text-white">+678</option>
+                                        <option value="+679" class="bg-primary-bg text-white">+679</option>
+                                        <option value="+680" class="bg-primary-bg text-white">+680</option>
+                                        <option value="+681" class="bg-primary-bg text-white">+681</option>
+                                        <option value="+682" class="bg-primary-bg text-white">+682</option>
+                                        <option value="+683" class="bg-primary-bg text-white">+683</option>
+                                        <option value="+685" class="bg-primary-bg text-white">+685</option>
+                                        <option value="+686" class="bg-primary-bg text-white">+686</option>
+                                        <option value="+687" class="bg-primary-bg text-white">+687</option>
+                                        <option value="+688" class="bg-primary-bg text-white">+688</option>
+                                        <option value="+689" class="bg-primary-bg text-white">+689</option>
+                                        <option value="+690" class="bg-primary-bg text-white">+690</option>
+                                        <option value="+691" class="bg-primary-bg text-white">+691</option>
+                                        <option value="+692" class="bg-primary-bg text-white">+692</option>
+                                        <option value="+500" class="bg-primary-bg text-white">+500</option>
+                                        <option value="+501" class="bg-primary-bg text-white">+501</option>
+                                        <option value="+502" class="bg-primary-bg text-white">+502</option>
+                                        <option value="+503" class="bg-primary-bg text-white">+503</option>
+                                        <option value="+504" class="bg-primary-bg text-white">+504</option>
+                                        <option value="+505" class="bg-primary-bg text-white">+505</option>
+                                        <option value="+506" class="bg-primary-bg text-white">+506</option>
+                                        <option value="+507" class="bg-primary-bg text-white">+507</option>
+                                        <option value="+508" class="bg-primary-bg text-white">+508</option>
+                                        <option value="+509" class="bg-primary-bg text-white">+509</option>
+                                        <option value="+590" class="bg-primary-bg text-white">+590</option>
+                                        <option value="+591" class="bg-primary-bg text-white">+591</option>
+                                        <option value="+592" class="bg-primary-bg text-white">+592</option>
+                                        <option value="+593" class="bg-primary-bg text-white">+593</option>
+                                        <option value="+594" class="bg-primary-bg text-white">+594</option>
+                                        <option value="+595" class="bg-primary-bg text-white">+595</option>
+                                        <option value="+596" class="bg-primary-bg text-white">+596</option>
+                                        <option value="+597" class="bg-primary-bg text-white">+597</option>
+                                        <option value="+598" class="bg-primary-bg text-white">+598</option>
+                                        <option value="+599" class="bg-primary-bg text-white">+599</option>
+                                    </select>
+                                    <input type="tel" id="phone" name="phone" 
+                                           class="flex-1 px-4 py-3 bg-white/5 border border-white/10 text-white placeholder-gray-400 focus:outline-none focus:border-white/30 transition-colors border-l-0">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="company" class="block font-inter text-sm text-body-text mb-2">Company</label>
+                                <input type="text" id="company" name="company" 
+                                       class="w-full px-4 py-3 bg-white/5 border border-white/10 text-white placeholder-gray-400 focus:outline-none focus:border-white/30 transition-colors">
+                            </div>
+                            <div>
+                                <label for="vehicleType" class="block font-inter text-sm text-body-text mb-2">Vehicle Type of Interest</label>
+                                <select id="vehicleType" name="vehicleType" 
+                                        class="w-full px-4 py-3 bg-white/5 border border-white/10 text-white focus:outline-none focus:border-white/30 transition-colors appearance-none bg-[url('data:image/svg+xml;charset=US-ASCII,<svg width="12" height="8" xmlns="http://www.w3.org/2000/svg"><path d="M1 1l5 5 5-5" stroke="white" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>')] bg-no-repeat bg-right-4 bg-center">
+                                    <option value="" class="bg-primary-bg text-white">Select a vehicle type</option>
+                                    <option value="suv" class="bg-primary-bg text-white">Armored SUV</option>
+                                    <option value="sedan" class="bg-primary-bg text-white">Armored Sedan</option>
+                                    <option value="bus" class="bg-primary-bg text-white">Armored Bus</option>
+                                    <option value="apc" class="bg-primary-bg text-white">Armored APC</option>
+                                    <option value="luxury" class="bg-primary-bg text-white">Armored Luxury</option>
+                                    <option value="truck" class="bg-primary-bg text-white">Armored Truck</option>
+                                    <option value="cash-transit" class="bg-primary-bg text-white">Cash in Transit</option>
+                                    <option value="other" class="bg-primary-bg text-white">Other</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label for="message" class="block font-inter text-sm text-body-text mb-2">Message *</label>
+                            <textarea id="message" name="message" rows="5" required 
+                                      class="w-full px-4 py-3 bg-white/5 border border-white/10 text-white placeholder-gray-400 focus:outline-none focus:border-white/30 transition-colors resize-none"
+                                      placeholder="Tell us about your requirements..."></textarea>
+                        </div>
+                        
+                        <button type="submit" class="w-full py-4 text-lg border-2 border-white bg-white text-primary-bg font-blacker font-medium hover:bg-primary-bg hover:text-white transition-all duration-300">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="bg-primary-bg border-t border-white/10 text-body-text">
+            <div class="max-w-7xl mx-auto px-6 py-16 grid grid-cols-1 md:grid-cols-3 gap-12">
+                <!-- Left: Mission -->
+                <div class="space-y-4">
+                    <h3 class="font-blacker text-2xl text-white">Our mission</h3>
+                    <p class="font-inter text-sm leading-relaxed">
+                        Sentinel Titans strives to exceed expectations in every assignment by providing exceptional customer service, setting industry benchmarks for quality and performance, ensuring swift turnarounds, and offering informed recommendations when it comes to acquiring an armored vehicle.
+                    </p>
+                </div>
+
+                <!-- Center: Newsletter -->
+                <div class="space-y-4">
+                    <h3 class="font-blacker text-2xl text-white text-center md:text-left">Stay updated</h3>
+                    <p class="font-inter text-sm leading-relaxed text-center md:text-left">
+                        By enrolling in our corporate newsletter, you will consistently stay informed about our most recent promotions, exclusive deals, and updated vehicle inventory.
+                    </p>
+                    <form class="flex flex-col sm:flex-row items-center sm:items-start gap-4" onsubmit="event.preventDefault();">
+                        <input type="email" placeholder="Enter email address" required class="w-full sm:flex-1 px-4 py-3 text-sm text-primary-bg placeholder-gray-500 focus:outline-none" />
+                        <button type="submit" class="company-brochure-btn px-6 py-3">Subscribe</button>
+                    </form>
+                </div>
+
+                <!-- Right: Contact & Address arranged horizontally -->
+                <div class="flex flex-col md:flex-row md:justify-end gap-8">
+                    <!-- Contact -->
+                    <div class="space-y-2 md:text-right">
+                        <h3 class="font-blacker text-2xl text-white">Contact</h3>
+                        <a href="tel:+97143434772" class="block font-inter text-sm hover:text-white transition-colors">+971&nbsp;43&nbsp;43&nbsp;4772</a>
+                        <a href="tel:+971545637533" class="block font-inter text-sm hover:text-white transition-colors">+971&nbsp;54&nbsp;563&nbsp;7533</a>
+                        <a href="tel:+971545637533" class="block font-inter text-sm hover:text-white transition-colors">+971&nbsp;54&nbsp;563&nbsp;7533</a>
+                        <a href="mailto:info@sentinel-titans.com" class="block font-inter text-sm hover:text-white transition-colors">info@sentinel-titans.com</a>
+                    </div>
+                    <!-- Address -->
+                    <div class="space-y-2 md:text-right">
+                        <h3 class="font-blacker text-2xl text-white">Address</h3>
+                        <p class="font-inter text-sm leading-relaxed">
+                            WAREHOUSE No (4)<br>
+                            JABEL ALI MAXI MIX PHASE 2,<br>
+                            Plot No. 599-737<br>
+                            Jabel Ali Industrial First,<br>
+                            Post Box 261141
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer Navigation Links -->
+            <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-center gap-8">
+                <a href="#home" class="font-inter text-sm text-body-text hover:text-white transition-colors">Home</a>
+                <a href="#company" class="font-inter text-sm text-body-text hover:text-white transition-colors">Company</a>
+                <a href="#vehicles" class="font-inter text-sm text-body-text hover:text-white transition-colors">Vehicles</a>
+                <a href="#production" class="font-inter text-sm text-body-text hover:text-white transition-colors">Production</a>
+                <a href="#services" class="font-inter text-sm text-body-text hover:text-white transition-colors">Services</a>
+                <a href="#contact" class="font-inter text-sm text-body-text hover:text-white transition-colors">Contact</a>
+            </div>
+
+            <!-- Footer Bottom Row -->
+            <div class="border-t border-white/10 mt-8">
+                <div class="max-w-7xl mx-auto px-6 py-6 flex items-center justify-between">
+                    <!-- Logo -->
+                    <img src="assets/logos/logo for webAsset 14.svg" alt="Sentinel Titans" class="h-12 w-auto">
+
+                    <!-- Social Icons -->
+                    <div class="flex gap-6">
+                        <a href="#" aria-label="Facebook" class="text-body-text hover:text-white transition-colors">
+                            <!-- Facebook Icon -->
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path d="M22.675 0h-21.35C.6 0 0 .6 0 1.337v21.326C0 23.4.6 24 1.325 24h11.494v-9.294H9.692V11.07h3.127V8.414c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.797.715-1.797 1.763v2.313h3.594l-.468 3.636h-3.126V24h6.127C23.4 24 24 23.4 24 22.663V1.337C24 .6 23.4 0 22.675 0z"/></svg>
+                        </a>
+                        <a href="#" aria-label="Instagram" class="text-body-text hover:text-white transition-colors">
+                            <!-- Instagram Icon -->
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.354 3.608 1.329.974.975 1.266 2.242 1.328 3.608.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.062 1.366-.354 2.633-1.329 3.608-.975.974-2.242 1.266-3.608 1.328-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.366-.062-2.633-.354-3.608-1.329-.974-.975-1.266-2.242-1.328-3.608C2.175 15.584 2.163 15.204 2.163 12s.012-3.584.07-4.85c.062-1.366.354-2.633 1.329-3.608.975-.974 2.242-1.266 3.608-1.328C8.416 2.175 8.796 2.163 12 2.163zm0-2.163C8.741 0 8.332.015 7.052.072 5.771.13 4.67.423 3.691 1.402 2.713 2.38 2.42 3.481 2.362 4.762.305 6.042.29 6.452.29 12s.015 5.958.072 7.238c.058 1.281.351 2.382 1.329 3.36.978.978 2.079 1.271 3.36 1.329C8.332 23.985 8.741 24 12 24s3.668-.015 4.948-.072c1.281-.058 2.382-.351 3.36-1.329.978-.978 1.271-2.079 1.329-3.36.057-1.28.072-1.689.072-7.238s-.015-5.958-.072-7.238c-.058-1.281-.351-2.382-1.329-3.36-.978-.979-2.079-1.272-3.36-1.329C15.668.015 15.259 0 12 0z"/><path d="M12 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zm0 10.163a3.999 3.999 0 1 1 0-7.998 3.999 3.999 0 0 1 0 7.998z"/><circle cx="18.406" cy="5.594" r="1.44"/></svg>
+                        </a>
+                        <a href="#" aria-label="LinkedIn" class="text-body-text hover:text-white transition-colors">
+                            <!-- LinkedIn Icon -->
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452H17.2v-5.569c0-1.328-.027-3.036-1.849-3.036-1.851 0-2.135 1.445-2.135 2.939v5.666H9.963V9h3.112v1.561h.045c.434-.82 1.49-1.684 3.07-1.684 3.281 0 3.882 2.161 3.882 4.971v6.604zM5.337 7.433a1.8 1.8 0 1 1 0-3.6 1.8 1.8 0 0 1 0 3.6zM6.556 20.452H4.119V9h2.437v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.226.792 24 1.771 24h20.451C23.2 24 24 23.226 24 22.271V1.729C24 .774 23.2 0 22.225 0z"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        </main>
+    
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/vehicles-database.js"></script>
+    <script src="assets/js/featured-vehicles.js"></script>
+</body>
+</html> 

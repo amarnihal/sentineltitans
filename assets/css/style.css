@@ -1,0 +1,652 @@
+/* Font Declarations */
+@font-face {
+    font-family: 'Blacker';
+    src: url('../fonts/Blacker-Text-Regular-trial.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Blacker';
+    src: url('../fonts/Blacker-Text-Medium-trial.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Blacker';
+    src: url('../fonts/Blacker-Text-Bold-trial.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Blacker';
+    src: url('../fonts/Blacker-Display-Regular-trial.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Inter';
+    src: url('../fonts/Inter-VariableFont_opsz,wght.ttf') format('truetype-variations');
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Inter';
+    src: url('../fonts/Inter-Italic-VariableFont_opsz,wght.ttf') format('truetype-variations');
+    font-weight: 100 900;
+    font-style: italic;
+    font-display: swap;
+}
+
+/* Material Icons Utilities */
+.material-icons {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    -webkit-font-feature-settings: 'liga';
+    -webkit-font-smoothing: antialiased;
+    vertical-align: middle;
+}
+
+.material-icons-outlined {
+    font-family: 'Material Icons Outlined';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    -webkit-font-feature-settings: 'liga';
+    -webkit-font-smoothing: antialiased;
+    vertical-align: middle;
+}
+
+.material-icons-round {
+    font-family: 'Material Icons Round';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    -webkit-font-feature-settings: 'liga';
+    -webkit-font-smoothing: antialiased;
+    vertical-align: middle;
+}
+
+.material-icons-sharp {
+    font-family: 'Material Icons Sharp';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    -webkit-font-feature-settings: 'liga';
+    -webkit-font-smoothing: antialiased;
+    vertical-align: middle;
+}
+
+.material-icons-two-tone {
+    font-family: 'Material Icons Two Tone';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    -webkit-font-feature-settings: 'liga';
+    -webkit-font-smoothing: antialiased;
+    vertical-align: middle;
+}
+
+/* Icon Size Utilities */
+.icon-sm { font-size: 18px; }
+.icon-md { font-size: 24px; }
+.icon-lg { font-size: 36px; }
+.icon-xl { font-size: 48px; }
+
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: #100E0C;
+    color: #C7C7C7;
+    line-height: 1.6;
+    font-weight: 400;
+    font-size: 13px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    text-align: center;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Blacker', serif;
+    font-weight: 400;
+    line-height: 1.2;
+    color: white;
+}
+
+h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    font-weight: 500;
+}
+
+p {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    color: #C7C7C7;
+    font-weight: 400;
+}
+
+/* Navigation Styles */
+#navbar {
+    background-color: rgba(16, 14, 12, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Get in Touch Button */
+.get-in-touch-btn {
+    border-radius: 0 !important;
+    font-size: 16px;
+    line-height: 1;
+    background-color: transparent;
+    transition: all 0.3s ease;
+}
+
+.get-in-touch-btn:hover {
+    background-color: white;
+    color: #100E0C;
+}
+
+/* Navigation Links */
+nav a {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    text-decoration: none;
+}
+
+/* Smooth transitions */
+* {
+    scroll-behavior: smooth;
+}
+
+/* Section styling to ensure full viewport height */
+section {
+    min-height: 100vh;
+}
+
+/* Logo sizing */
+nav img {
+    max-height: 64px;
+    width: auto;
+    transition: filter 0.3s ease;
+}
+
+nav img:hover {
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.3));
+}
+
+/* Hero Slideshow Styles */
+.slideshow-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    will-change: transform;
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: translateX(100%);
+    transition: transform 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+    background: linear-gradient(135deg, #1a1611 0%, #2d2419 50%, #1a1611 100%);
+}
+
+.slide.active {
+    transform: translateX(0);
+    transition-delay: 0s;
+}
+
+.slide.prev {
+    transform: translateX(-100%);
+    transition-delay: 0s;
+}
+
+.slide-bg {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.slide-bg::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(16, 14, 12, 0.3) 0%, rgba(16, 14, 12, 0.1) 50%, rgba(16, 14, 12, 0.3) 100%);
+    z-index: 1;
+    transition: opacity 0.6s ease-in-out;
+}
+
+.slide-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: 2rem;
+    animation: slideContentIn 1.2s ease-out;
+}
+
+.slide.active .slide-content {
+    animation: slideContentIn 1.2s ease-out;
+}
+
+@keyframes slideContentIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Navigation arrows */
+.prev-slide, .next-slide {
+    background: rgba(0, 0, 0, 0.3);
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    z-index: 25;
+}
+
+.prev-slide:hover, .next-slide:hover {
+    background: rgba(0, 0, 0, 0.5);
+    transform: scale(1.1);
+}
+
+/* Slide indicators */
+.slide-indicators {
+    display: flex;
+    gap: 12px;
+    z-index: 30;
+    position: relative;
+}
+
+.indicator {
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.indicator.active {
+    background-color: white !important;
+    transform: scale(1.2);
+}
+
+.indicator:hover {
+    transform: scale(1.1);
+}
+
+/* Hero buttons */
+
+/* Jeep Wrangler Slideshow Styles */
+.jeep-slideshow-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.jeep-slide {
+    position: absolute;
+    top: 0;
+    left: 100%;
+    width: 100%;
+    height: 100%;
+    transition: left 0.6s ease-in-out;
+    opacity: 0;
+}
+
+.jeep-slide.active {
+    left: 0;
+    opacity: 1;
+}
+
+.jeep-slide.prev {
+    left: -100%;
+    opacity: 0;
+}
+
+/* Navigation arrows for Jeep slideshow */
+.jeep-prev-slide, .jeep-next-slide {
+    background: rgba(0, 0, 0, 0.4);
+    border: none;
+    border-radius: 50%;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    z-index: 30;
+}
+
+.jeep-prev-slide:hover, .jeep-next-slide:hover {
+    background: rgba(0, 0, 0, 0.6);
+    transform: scale(1.1);
+}
+
+/* Slide indicators for Jeep slideshow */
+.jeep-slide-indicators {
+    display: flex;
+    gap: 8px;
+    z-index: 30;
+}
+
+.jeep-indicator {
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.jeep-indicator.active {
+    background-color: white !important;
+    transform: scale(1.3);
+}
+
+.jeep-indicator:hover {
+    transform: scale(1.2);
+}
+.slide button {
+    border-radius: 0;
+    font-size: 16px;
+    line-height: 1.2;
+    font-weight: 500;
+    min-width: 160px;
+    text-align: center;
+}
+
+/* Company Brochure Button */
+.company-brochure-btn {
+    border-radius: 0 !important;
+    height: 46px;
+    border: 2px solid white;
+    background-color: white;
+    color: #100E0C;
+    font-family: 'Blacker', serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1px;
+    transition: all 0.3s ease;
+}
+
+.company-brochure-btn:hover {
+    background-color: #100E0C;
+    color: white;
+    border-color: white;
+}
+
+/* Explore Button */
+.explore-btn {
+    border-radius: 0 !important;
+    font-size: 14px;
+    line-height: 1.2;
+    background-color: transparent;
+    transition: all 0.3s ease;
+    border: 1px solid white;
+}
+
+.explore-btn:hover {
+    background-color: white;
+    color: #100E0C;
+}
+
+/* Vehicle tabs */
+.vehicle-tab {
+    transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+.vehicle-tab.active {
+    color: #B30000 !important;
+    border-color: #B30000 !important;
+}
+
+/* Brands Ticker */
+.brands-slider {
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+    width: max-content; /* allow content width */
+    animation: ticker-scroll 30s linear infinite;
+}
+
+.brands-slider:hover {
+    animation-play-state: paused; /* pause on hover */
+}
+
+.brand-logo {
+    width: 60px;
+    height: auto;
+    opacity: 0.9;
+    filter: grayscale(100%);
+    transition: transform 0.3s, opacity 0.3s;
+}
+
+/* Slightly larger center logo */
+.brands-slider img:nth-child(5) {
+    transform: scale(1.3);
+    opacity: 1;
+}
+
+@keyframes ticker-scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+/* Fade-out overlay on ticker ends */
+.ticker-wrapper::before,
+.ticker-wrapper::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100px; /* width of fade */
+    pointer-events: none;
+    z-index: 2;
+}
+
+.ticker-wrapper::before {
+    left: 0;
+    background: linear-gradient(to right, #100E0C 0%, rgba(16,14,12,0) 100%);
+}
+
+.ticker-wrapper::after {
+    right: 0;
+    background: linear-gradient(to left, #100E0C 0%, rgba(16,14,12,0) 100%);
+}
+
+/* Ensure mega menu content is properly contained */
+.group .group-hover\:opacity-100 .max-w-7xl {
+    max-width: 80rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Mega Menu Styles - Fixed */
+.group:hover .group-hover\:opacity-100 {
+    opacity: 1 !important;
+    pointer-events: auto !important;
+}
+
+.group:hover .group-hover\:pointer-events-auto {
+    pointer-events: auto !important;
+}
+
+/* Ensure mega menu stays visible when hovering over it */
+.group .group-hover\:opacity-100:hover {
+    opacity: 1 !important;
+    pointer-events: auto !important;
+}
+
+/* Simple Mega Menu Fix */
+.group:hover .group-hover\:opacity-100 {
+    opacity: 1 !important;
+    pointer-events: auto !important;
+}
+
+.group:hover .group-hover\:pointer-events-auto {
+    pointer-events: auto !important;
+}
+
+/* Ensure mega menu stays visible when hovering over menu content */
+.group .group-hover\:opacity-100:hover {
+    opacity: 1 !important;
+    pointer-events: auto !important;
+}
+
+/* Mega Menu Specific Styles */
+.group:hover .mega-menu {
+    opacity: 1 !important;
+    pointer-events: auto !important;
+}
+
+.mega-menu:hover {
+    opacity: 1 !important;
+    pointer-events: auto !important;
+}
+
+/* Bridge gap between button and menu when margin-top is present */
+.mega-menu::before {
+    content: "";
+    position: absolute;
+    top: -1.75rem; /* matches mt-7 (1.75rem) */
+    left: 0;
+    right: 0;
+    height: 1.75rem; /* same size as the gap */
+}
+
+/* Additional Mega Menu Hover Fix */
+.group .mega-menu:hover {
+    opacity: 1 !important;
+    pointer-events: auto !important;
+}
+
+/* Ensure mega menu stays visible when hovering over menu content */
+.mega-menu:hover {
+    opacity: 1 !important;
+    pointer-events: auto !important;
+} 
+
+/* Override hero slideshow offset for full-width display */
+@media (min-width: 768px) {
+    #home .slideshow-container {
+        margin-left: 0 !important; /* remove 8rem offset */
+        transform: none !important; /* remove 0.8 scale */
+    }
+}
+
+/* Vehicle Filter Styles */
+.vehicle-filter input[type="checkbox"]:checked + div {
+    border-color: white;
+}
+
+.vehicle-filter input[type="checkbox"]:checked + div > div {
+    opacity: 1;
+}
+
+.vehicle-filter input[type="checkbox"]:checked ~ span {
+    color: white;
+}
+
+/* Enhanced Vehicle Filter Styles */
+.vehicle-filter input[type="checkbox"]:checked + div {
+    border-color: white;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.vehicle-filter input[type="checkbox"]:checked + div > div {
+    opacity: 1;
+    background-color: white;
+}
+
+.vehicle-filter input[type="checkbox"]:checked ~ span {
+    color: white;
+    font-weight: 500;
+}
+
+
+
+
+
+/* Filter Hover Effects */
+.vehicle-filter:hover input[type="checkbox"]:not(:checked) + div {
+    border-color: rgba(255, 255, 255, 0.6);
+}
+
+.vehicle-filter:hover input[type="checkbox"]:not(:checked) + div > div {
+    opacity: 0.3;
+} 
