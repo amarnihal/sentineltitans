@@ -15,12 +15,13 @@ document.addEventListener('DOMContentLoaded', function() {
     function generateVehicleCard(vehicle) {
         // Create a filename for the car page based on vehicle ID
         const carPageName = vehicle.id + '.html';
+        const img = (vehicle.thumbnail && vehicle.thumbnail.length) ? vehicle.thumbnail : vehicle.images[0];
         
         return `
             <div class="bg-white/5 border border-white/10 rounded-none overflow-hidden hover:border-white/20 transition-all duration-300 group" data-vehicle-type="${vehicle.category}">
                 <!-- Vehicle Image -->
                 <div class="relative">
-                    <img src="${vehicle.images[0]}" 
+                    <img src="${img}" 
                          alt="${vehicle.name}" 
                          class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
                 </div>

@@ -47,71 +47,29 @@
                 <div class="hidden md:flex items-center space-x-8">
                     <a href="#home" class="font-inter text-white hover:text-white transition-colors duration-200 text-base">Home</a>
                     <a href="#company" class="font-inter text-gray-300 hover:text-white transition-colors duration-200 text-base">Company</a>
-                    <div class="relative group">
+                    <div class="group">
                         <a href="vehicles.html" class="font-inter text-gray-300 hover:text-white transition-colors duration-200 text-base flex items-center cursor-pointer focus:outline-none">
                             Vehicles
                             <svg class="ml-1 w-4 h-4 text-gray-400 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
                         </a>
                         <!-- Mega Menu -->
-                        <div class="mega-menu absolute left-0 top-full mt-7 bg-primary-bg border-t border-white/10 shadow-lg opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-opacity duration-200 z-50" style="width: 100vw; left: 50%; margin-left: calc(-50vw + 2rem);">
-                                                            <div class="max-w-7xl mx-auto px-12 py-8">
-                                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-x-20 gap-y-16 items-start">
-                                                          <!-- ARMORED SUV -->
-                              <div class="self-start">
-                                <span class="block font-blacker text-base text-white tracking-widest mb-2">Armored SUV</span>
-                                <ul class="space-y-1 ml-2">
-                                    <li><a href="lexus-lx600.html" class="block font-inter text-xs text-body-text/85 hover:text-white transition-colors">Armored Lexus LX600</a></li>
-                                    <li><a href="gwagon.html" class="block font-inter text-xs text-body-text/85 hover:text-white transition-colors">Armored Mercedes G-Wagon</a></li>
-                                    <li><a href="vehicles.html" class="block font-inter text-xs text-body-text/85 hover:text-white transition-colors">Browse All Vehicles</a></li>
-                                </ul>
-                            </div>
-                                                          <!-- ARMORED SEDAN -->
-                              <div class="self-start">
-                                <span class="block font-blacker text-base text-white tracking-widest mb-2">Armored Sedan</span>
-                                <ul class="space-y-1 ml-2">
-                                    <li><a href="vehicles.html" class="block font-inter text-xs text-body-text/85 hover:text-white transition-colors">Browse All Vehicles</a></li>
-                                </ul>
-                            </div>
-                                                          <!-- ARMORED BUS -->
-                              <div class="self-start">
-                                <span class="block font-blacker text-base text-white tracking-widest mb-2">Armored Bus</span>
-                                <ul class="space-y-1 ml-2">
-                                    <li><a href="vehicles.html" class="block font-inter text-xs text-body-text/85 hover:text-white transition-colors">Browse All Vehicles</a></li>
-                                </ul>
-                            </div>
-                                                          <!-- ARMORED APC -->
-                              <div class="self-start">
-                                <span class="block font-blacker text-base text-white tracking-widest mb-2">Armored APC</span>
-                                <ul class="space-y-1 ml-2">
-                                    <li><a href="vehicles.html" class="block font-inter text-xs text-body-text/85 hover:text-white transition-colors">Browse All Vehicles</a></li>
-                                </ul>
-                            </div>
-                                                          <!-- CASH IN TRANSIT -->
-                              <div class="self-start">
-                                <span class="block font-blacker text-base text-white tracking-widest mb-2">Cash in Transit</span>
-                                <ul class="space-y-1 ml-2">
-                                    <li><a href="tlc-79-moneybox.html" class="block font-inter text-xs text-body-text/85 hover:text-white transition-colors">Toyota Land Cruiser 79 Money Box</a></li>
-                                    <li><a href="vehicles.html" class="block font-inter text-xs text-body-text/85 hover:text-white transition-colors">Browse All Vehicles</a></li>
-                                </ul>
-                            </div>
-                            <!-- ARMORED PICKUP TRUCKS -->
-                            <div class="self-start">
-                                <span class="block font-blacker text-base text-white tracking-widest mb-2">Armored Pickup Trucks</span>
-                                <ul class="space-y-1 ml-2">
-                                    <li><a href="toyota-tlc78.html" class="block font-inter text-xs text-body-text/85 hover:text-white transition-colors">Toyota Land Cruiser 78</a></li>
-                                    <li><a href="toyota-tlc79.html" class="block font-inter text-xs text-body-text/85 hover:text-white transition-colors">Toyota Land Cruiser 79</a></li>
-                                    <li><a href="vehicles.html" class="block font-inter text-xs text-body-text/85 hover:text-white transition-colors">Browse All Vehicles</a></li>
-                                </ul>
-                            </div>
-                                                          <!-- ARMORED LUXURY -->
-                              <div class="self-start">
-                                <span class="block font-blacker text-base text-white tracking-widest mb-2">Armored Luxury</span>
-                                <ul class="space-y-1 ml-2">
-                                    <li><a href="vehicles.html" class="block font-inter text-xs text-body-text/85 hover:text-white transition-colors">Browse All Vehicles</a></li>
-                                </ul>
-                            </div>
-                                </div>
-                            </div>
+                        <div class="mega-menu absolute left-0 right-0 top-full bg-primary-bg border-t border-white/10 shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-opacity duration-200 z-50">
+                        <div class="max-w-7xl mx-auto px-12 py-8">
+                                <!-- Mega Menu Tabs -->
+                                <div id="mega-menu-tabs" class="flex flex-wrap gap-6 mb-8">
+									<button type="button" class="vehicle-tab active font-inter text-sm uppercase tracking-wide border-b-2 pb-1 text-[#B30000] border-[#B30000]" data-category="suv">SUVs</button>
+									<button type="button" class="vehicle-tab font-inter text-body-text text-sm uppercase tracking-wide border-b-2 border-transparent hover:border-white pb-1" data-category="sedan">Sedans</button>
+									<button type="button" class="vehicle-tab font-inter text-body-text text-sm uppercase tracking-wide border-b-2 border-transparent hover:border-white pb-1" data-category="truck">Trucks</button>
+									<button type="button" class="vehicle-tab font-inter text-body-text text-sm uppercase tracking-wide border-b-2 border-transparent hover:border-white pb-1" data-category="limousine">Limousines</button>
+									<button type="button" class="vehicle-tab font-inter text-body-text text-sm uppercase tracking-wide border-b-2 border-transparent hover:border-white pb-1" data-category="cash-transit">Cash in Transit</button>
+									<button type="button" class="vehicle-tab font-inter text-body-text text-sm uppercase tracking-wide border-b-2 border-transparent hover:border-white pb-1" data-category="special-purpose">Special Purpose</button>
+								</div>
+								
+								<!-- Mega Menu Content Area -->
+								<div id="mega-menu-content" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+									<!-- Cards are injected here by JS -->
+								</div>
+							</div>
                         </div>
                     </div>
                     <a href="#production" class="font-inter text-gray-300 hover:text-white transition-colors duration-200 text-base">Production</a>

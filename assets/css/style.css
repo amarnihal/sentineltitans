@@ -579,8 +579,91 @@ nav img:hover {
     pointer-events: auto !important;
 }
 
+/* Fixed height for mega menu: half of the viewport */
+.mega-menu {
+	height: 57.5vh; /* increased by 15% */
+	max-height: 57.5vh;
+	overflow-y: auto;
+	-webkit-overflow-scrolling: touch;
+	/* Light theme for mega menu */
+	background-color: #F6F7F9 !important; /* soft white */
+	border-color: rgba(0, 0, 0, 0.08) !important;
+	color: #111827; /* default text color inside */
+}
+
+/* Mega menu image box: keeps images large, centered, and below text fits */
+.mega-img-box {
+	position: relative;
+	overflow: hidden;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 23.625vh; /* reduced by 10% from 26.25vh */
+}
+.mega-img-box img {
+	max-height: 100%;
+	width: auto;
+	display: block;
+}
+
+/* Typography overrides for light mega menu */
+.mega-menu h1,
+.mega-menu h2,
+.mega-menu h3,
+.mega-menu h4,
+.mega-menu h5,
+.mega-menu h6 {
+	color: #111827; /* slate-900 */
+}
+.mega-menu .text-white {
+	color: #111827 !important;
+}
+.mega-menu .text-body-text {
+	color: #374151 !important; /* slate-700 */
+}
+.mega-menu a {
+	color: #1f2937; /* slate-800 */
+	transition: color 0.2s ease-in-out, border-color 0.2s ease-in-out, background-color 0.2s ease-in-out;
+}
+.mega-menu a:hover {
+	color: #111827;
+}
+
+/* Tabs on light background */
+.mega-menu .vehicle-tab {
+	color: #4b5563 !important; /* slate-600 */
+	border-color: transparent;
+}
+.mega-menu .vehicle-tab:hover {
+	border-color: #9ca3af; /* gray-400 */
+}
+.mega-menu .vehicle-tab.active {
+	color: #B30000 !important;
+	border-color: #B30000 !important;
+}
+
+/* Explore button on light background */
+.mega-menu .explore-btn {
+	border-color: #111827 !important;
+	color: #111827 !important;
+	background-color: transparent;
+}
+.mega-menu .explore-btn:hover {
+	background-color: #111827 !important;
+	color: #ffffff !important;
+}
+
+/* Removed hover zoom effect for thumbnails */
+
+/* JS-controlled open state (adds robustness for click/focus interactions) */
+.group.menu-open .mega-menu {
+	opacity: 1 !important;
+	pointer-events: auto !important;
+	visibility: visible !important;
+}
+
 /* Bridge gap between button and menu when margin-top is present */
-.mega-menu::before {
+.menu-gap-bridge::before {
     content: "";
     position: absolute;
     top: -1.75rem; /* matches mt-7 (1.75rem) */

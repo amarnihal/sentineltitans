@@ -21,13 +21,14 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Function to generate vehicle card HTML (same style as vehicles page)
     function generateVehicleCard(vehicle) {
+        const img = (vehicle.thumbnail && vehicle.thumbnail.length) ? vehicle.thumbnail : vehicle.images[0];
         return `
             <div class="bg-white/5 border border-white/10 rounded-none overflow-hidden hover:border-white/20 transition-all duration-300 group w-full" data-vehicle-id="${vehicle.id}">
                 <!-- Vehicle Image -->
-                <div class="relative">
-                    <img src="${vehicle.images[0]}" 
+                <div class="relative aspect-video overflow-hidden">
+                    <img src="${img}" 
                          alt="${vehicle.name}" 
-                         class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
+                         class="absolute inset-0 w-full h-full object-contain transition-transform duration-300">
                 </div>
                 
                 <!-- Vehicle Info -->

@@ -10,6 +10,7 @@ const vehiclesDatabase = {
             name: 'Armored Lexus LX600',
             category: 'suv',
             categoryDisplay: 'Armored SUV',
+            thumbnail: 'assets/images/All Vehicles/suvs/LEXUS 600/LEXUS 600-thumbnail.png',
             images: [
                 'assets/images/All Vehicles/suvs/LEXUS 600/20250222_113047.jpg',
                 'assets/images/All Vehicles/suvs/LEXUS 600/20250222_112941.jpg',
@@ -49,23 +50,16 @@ const vehiclesDatabase = {
             featured: true,
             description: 'Luxury armored SUV with advanced protection systems'
         },
-        {
-            id: 'gwagon',
-            name: 'Armored Mercedes G-Wagon',
-            category: 'suv',
-            categoryDisplay: 'Armored SUV',
-            images: [
-                'assets/images/All Vehicles/suvs/gwagon/Gemini_Generated_Image_6mylxq6mylxq6myl.png',
-                'assets/images/All Vehicles/suvs/gwagon/Gemini_Generated_Image_7q9cz17q9cz17q9c.png',
-                'assets/images/All Vehicles/suvs/gwagon/Gemini_Generated_Image_9makwp9makwp9mak.png',
-                'assets/images/All Vehicles/suvs/gwagon/Gemini_Generated_Image_bgivx1bgivx1bgiv.png',
-                'assets/images/All Vehicles/suvs/gwagon/Gemini_Generated_Image_eh3ey0eh3ey0eh3e.png',
-                'assets/images/All Vehicles/suvs/gwagon/Gemini_Generated_Image_em3ub1em3ub1em3u.png',
-                'assets/images/All Vehicles/suvs/gwagon/Gemini_Generated_Image_iddjwiddjwiddjwi.png'
-            ],
-            featured: true,
-            description: 'Iconic armored luxury SUV with exceptional off-road capabilities and military-grade protection'
-        }
+		{
+			id: 'toyota-land-cruiser-prado',
+			name: 'Toyota Land Cruiser Prado',
+			category: 'suv',
+			categoryDisplay: 'Armored SUV',
+			thumbnail: 'assets/images/All Vehicles/suvs/Toyota Land Cruiser Prado/Toyota Land Cruiser Prado White-thumbnail.png',
+			images: [],
+			featured: false,
+			description: 'Armored Toyota Land Cruiser Prado with enhanced protection and comfort'
+		}
     ],
 
     // Cash in Transit Category
@@ -75,6 +69,7 @@ const vehiclesDatabase = {
         name: 'Toyota Land Cruiser 79 Money Box',
             category: 'cash-transit',
             categoryDisplay: 'Cash in Transit',
+            thumbnail: 'assets/images/All Vehicles/cash in transit/TLC 79 Money Box-White/TLC 79 Money Box-White-thumbnail.png',
             images: [
                 'assets/images/All Vehicles/cash in transit/TLC 79 Money Box  - White/20250218_151213.jpg',
                 'assets/images/All Vehicles/cash in transit/TLC 79 Money Box  - White/20250218_151222.jpg',
@@ -118,6 +113,7 @@ const vehiclesDatabase = {
             name: 'Toyota Land Cruiser 79',
             category: 'truck',
             categoryDisplay: 'Armored Pickup Trucks',
+            thumbnail: 'assets/images/All Vehicles/Armored Pickup Trucks/Toyota Land Cruiser 79/Toyota Land Cruiser 79-thumbnail.png',
             images: [
                 'assets/images/All Vehicles/Armored Pickup Trucks/Toyota Land Cruiser 79/20250222_103220.jpg',
                 'assets/images/All Vehicles/Armored Pickup Trucks/Toyota Land Cruiser 79/20250222_103253.jpg',
@@ -149,6 +145,7 @@ const vehiclesDatabase = {
             name: 'Toyota Land Cruiser 78',
             category: 'truck',
             categoryDisplay: 'Armored Pickup Trucks',
+            thumbnail: 'assets/images/All Vehicles/Armored Pickup Trucks/Toyota Land Cruiser 78/Toyota Land Cruiser 78-thumbnail.png',
             images: [
                 'assets/images/All Vehicles/Armored Pickup Trucks/Toyota Land Cruiser 78/20250225_133002.jpg',
                 'assets/images/All Vehicles/Armored Pickup Trucks/Toyota Land Cruiser 78/20250225_133010.jpg',

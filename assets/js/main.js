@@ -145,6 +145,212 @@ document.addEventListener('DOMContentLoaded', function() {
     // Start the slideshow
     startSlideshow();
 
+    // --- Mega Menu Interactions (hover via CSS, click toggle via JS) ---
+    const megaMenu = document.querySelector('.mega-menu');
+    if (megaMenu) {
+        const vehiclesGroup = megaMenu.parentElement;
+        const triggerLink = vehiclesGroup ? vehiclesGroup.querySelector('a[href="vehicles.html"]') : null;
+        let closeTimer = null;
+        const megaMenuTabs = megaMenu.querySelectorAll('#mega-menu-tabs .vehicle-tab');
+        const megaMenuContent = megaMenu.querySelector('#mega-menu-content');
+
+        function openMenu() {
+            if (!vehiclesGroup) return;
+            vehiclesGroup.classList.add('menu-open');
+            if (triggerLink) triggerLink.setAttribute('aria-expanded', 'true');
+        }
+
+        function closeMenu() {
+            if (!vehiclesGroup) return;
+            vehiclesGroup.classList.remove('menu-open');
+            if (triggerLink) triggerLink.setAttribute('aria-expanded', 'false');
+        }
+
+        function scheduleClose() {
+            if (closeTimer) clearTimeout(closeTimer);
+            closeTimer = setTimeout(() => {
+                closeMenu();
+                closeTimer = null;
+            }, 150);
+        }
+
+        function cancelClose() {
+            if (closeTimer) {
+                clearTimeout(closeTimer);
+                closeTimer = null;
+            }
+        }
+
+        // Click to toggle (desktop hover-capable environments)
+        if (triggerLink) {
+            triggerLink.setAttribute('aria-haspopup', 'true');
+            triggerLink.setAttribute('aria-expanded', 'false');
+
+            triggerLink.addEventListener('click', (e) => {
+                // Only toggle when hover-capable (desktop) to avoid conflicting with mobile nav
+                if (window.matchMedia('(hover: hover)').matches) {
+                    e.preventDefault();
+                    if (vehiclesGroup.classList.contains('menu-open')) {
+                        closeMenu();
+                    } else {
+                        openMenu();
+                    }
+                }
+            });
+
+            // Keyboard accessibility
+            triggerLink.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    openMenu();
+                    const firstLink = megaMenu.querySelector('a');
+                    if (firstLink) firstLink.focus();
+                } else if (e.key === 'Escape') {
+                    closeMenu();
+                    triggerLink.focus();
+                }
+            });
+
+            // Hover interactions to keep menu open when pointer moves to the panel
+            triggerLink.addEventListener('mouseenter', () => {
+                if (window.matchMedia('(hover: hover)').matches) {
+                    cancelClose();
+                    openMenu();
+                }
+            });
+        }
+
+        // Hover into mega menu keeps it open
+        megaMenu.addEventListener('mouseenter', () => {
+            if (window.matchMedia('(hover: hover)').matches) {
+                cancelClose();
+                openMenu();
+            }
+        });
+
+        // Leaving either the trigger container or the menu schedules a close
+        if (vehiclesGroup) {
+            vehiclesGroup.addEventListener('mouseleave', () => {
+                if (window.matchMedia('(hover: hover)').matches) {
+                    scheduleClose();
+                }
+            });
+        }
+        megaMenu.addEventListener('mouseleave', () => {
+            if (window.matchMedia('(hover: hover)').matches) {
+                scheduleClose();
+            }
+        });
+
+        // Close on outside click or Escape
+        document.addEventListener('click', (e) => {
+            if (vehiclesGroup && !vehiclesGroup.contains(e.target)) {
+                closeMenu();
+            }
+        });
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeMenu();
+            }
+        });
+    }
+
+    // --- Mega Menu: Tabbed Category Content ---
+    (function setupMegaMenuTabs() {
+        const menu = document.querySelector('.mega-menu');
+        if (!menu) return;
+        const tabs = menu.querySelectorAll('#mega-menu-tabs .vehicle-tab');
+        const content = menu.querySelector('#mega-menu-content');
+        if (!tabs.length || !content) return;
+
+        // Map for safety with database keys
+        const validCategories = new Set(['suv', 'sedan', 'truck', 'limousine', 'cash-transit', 'special-purpose']);
+
+        function generateCard(vehicle) {
+            const img = vehicle.thumbnail || ((vehicle.images && vehicle.images.length) ? vehicle.images[0] : 'assets/images/featured-cars/suvs/mercedes/mercedes-g63.png');
+            const href = `${vehicle.id}.html`;
+            return `
+                <div class="group flex flex-col items-center text-center">
+                    <div class="mega-img-box">
+                        <img src="${img}" alt="${vehicle.name}" class="block max-h-full w-auto">
+                    </div>
+                    <h4 class="font-playfair text-base text-white mt-2">${vehicle.name}</h4>
+                    <a href="${href}" class="explore-btn inline-block font-playfair font-medium text-white border border-white px-4 py-2 hover:bg-white hover:text-primary-bg transition-all duration-300 mt-4 mx-auto">Explore</a>
+                </div>
+            `;
+        }
+
+        function emptyState(label) {
+            return `
+                <div class="col-span-full text-center py-8">
+                    <h3 class="font-playfair text-xl text-white mb-2">${label}</h3>
+                    <p class="font-inter text-body-text text-sm">No vehicles are available in this category yet.</p>
+                </div>
+            `;
+        }
+
+        function displayCategory(category) {
+            try {
+                if (!validCategories.has(category)) {
+                    content.innerHTML = emptyState('Coming Soon');
+                    return;
+                }
+                let vehicles = [];
+                // Prefer helper if available, else read database directly
+                if (typeof getVehiclesByCategory === 'function') {
+                    vehicles = getVehiclesByCategory(category) || [];
+                } else if (typeof vehiclesDatabase !== 'undefined') {
+                    vehicles = vehiclesDatabase[category] || [];
+                }
+                if (!vehicles.length) {
+                    content.innerHTML = emptyState('No Vehicles Found');
+                    return;
+                }
+                // Show featured first if present
+                const featured = vehicles.filter(v => v.featured);
+                const others = vehicles.filter(v => !v.featured);
+                const ordered = [...featured, ...others].slice(0, 6); // show up to 6
+                content.innerHTML = ordered.map(generateCard).join('');
+
+                // Images auto-fit inside fixed-height boxes; no extra JS needed
+            } catch (e) {
+                console.error('Mega menu populate error:', e);
+                content.innerHTML = emptyState('Error loading vehicles');
+            }
+        }
+
+        function setActiveTab(activeTab) {
+            tabs.forEach(t => {
+                t.classList.remove('active', 'text-[#B30000]', 'border-[#B30000]');
+                t.classList.add('text-body-text', 'border-transparent');
+            });
+            activeTab.classList.add('active', 'text-[#B30000]', 'border-[#B30000]');
+            activeTab.classList.remove('text-body-text', 'border-transparent');
+        }
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                const category = tab.getAttribute('data-category');
+                setActiveTab(tab);
+                displayCategory(category);
+            });
+            tab.addEventListener('mouseenter', () => {
+                if (window.matchMedia('(hover: hover)').matches) {
+                    const category = tab.getAttribute('data-category');
+                    setActiveTab(tab);
+                    displayCategory(category);
+                }
+            });
+        });
+
+        // Initialize default tab (SUVs)
+        const defaultTab = menu.querySelector('#mega-menu-tabs .vehicle-tab[data-category="suv"]') || tabs[0];
+        if (defaultTab) {
+            setActiveTab(defaultTab);
+            displayCategory(defaultTab.getAttribute('data-category'));
+        }
+    })();
+
     // Jeep Wrangler Slideshow Functionality
     const jeepSlides = document.querySelectorAll('.jeep-slide');
     const jeepIndicators = document.querySelectorAll('.jeep-indicator');
