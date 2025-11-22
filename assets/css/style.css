@@ -572,11 +572,13 @@ nav img:hover {
 .group:hover .mega-menu {
     opacity: 1 !important;
     pointer-events: auto !important;
+    visibility: visible !important;
 }
 
 .mega-menu:hover {
     opacity: 1 !important;
     pointer-events: auto !important;
+    visibility: visible !important;
 }
 
 /* Fixed height for mega menu: half of the viewport */
