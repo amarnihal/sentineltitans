@@ -529,57 +529,7 @@ nav img:hover {
     background: linear-gradient(to left, #100E0C 0%, rgba(16,14,12,0) 100%);
 }
 
-/* Ensure mega menu content is properly contained */
-.group .group-hover\:opacity-100 .max-w-7xl {
-    max-width: 80rem;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-/* Mega Menu Styles - Fixed */
-.group:hover .group-hover\:opacity-100 {
-    opacity: 1 !important;
-    pointer-events: auto !important;
-}
-
-.group:hover .group-hover\:pointer-events-auto {
-    pointer-events: auto !important;
-}
-
-/* Ensure mega menu stays visible when hovering over it */
-.group .group-hover\:opacity-100:hover {
-    opacity: 1 !important;
-    pointer-events: auto !important;
-}
-
-/* Simple Mega Menu Fix */
-.group:hover .group-hover\:opacity-100 {
-    opacity: 1 !important;
-    pointer-events: auto !important;
-}
-
-.group:hover .group-hover\:pointer-events-auto {
-    pointer-events: auto !important;
-}
-
-/* Ensure mega menu stays visible when hovering over menu content */
-.group .group-hover\:opacity-100:hover {
-    opacity: 1 !important;
-    pointer-events: auto !important;
-}
-
-/* Mega Menu Specific Styles */
-.group:hover .mega-menu {
-    opacity: 1 !important;
-    pointer-events: auto !important;
-    visibility: visible !important;
-}
-
-.mega-menu:hover {
-    opacity: 1 !important;
-    pointer-events: auto !important;
-    visibility: visible !important;
-}
+/* Mega Menu - JavaScript controlled visibility */
 
 /* Fixed height for mega menu: half of the viewport */
 .mega-menu {
@@ -657,26 +607,11 @@ nav img:hover {
 
 /* Removed hover zoom effect for thumbnails */
 
-/* JS-controlled open state - MUST override Tailwind's invisible and opacity-0 classes */
-.group.menu-open .mega-menu,
-.group.menu-open .mega-menu.invisible,
-.group.menu-open .mega-menu.opacity-0 {
+/* JS-controlled open state - JavaScript sets inline styles, this is backup */
+.group.menu-open .mega-menu {
 	opacity: 1 !important;
 	pointer-events: auto !important;
 	visibility: visible !important;
-	display: block !important;
-}
-
-/* Also ensure it stays open when menu itself is hovered */
-.group.menu-open .mega-menu:hover {
-	opacity: 1 !important;
-	visibility: visible !important;
-	pointer-events: auto !important;
-}
-
-/* When hovering on mega menu, also keep parent group in menu-open state */
-.mega-menu:hover ~ * {
-	/* This ensures parent stays hovered */
 }
 
 /* Bridge gap between button and menu when margin-top is present */
