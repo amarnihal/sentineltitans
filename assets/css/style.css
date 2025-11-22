@@ -572,37 +572,23 @@ nav img:hover {
 .group:hover .mega-menu {
     opacity: 1 !important;
     pointer-events: auto !important;
-    visibility: visible !important;
 }
 
 .mega-menu:hover {
     opacity: 1 !important;
     pointer-events: auto !important;
-    visibility: visible !important;
 }
 
-/* Ensure hover state persists when moving between trigger and menu */
-.group:hover .mega-menu,
-.mega-menu:hover {
-    opacity: 1 !important;
-    pointer-events: auto !important;
-    visibility: visible !important;
-}
-
-/* Mega menu - full width, auto height with max constraint */
+/* Fixed height for mega menu: half of the viewport */
 .mega-menu {
-    position: absolute;
-    left: 0;
-    right: 0;
-    width: 100%;
-    min-height: auto;
-    max-height: 80vh;
-    overflow-y: visible;
-    overflow-x: hidden;
-    /* Light theme for mega menu */
-    background-color: #F6F7F9 !important; /* soft white */
-    border-color: rgba(0, 0, 0, 0.08) !important;
-    color: #111827; /* default text color inside */
+	height: 57.5vh; /* increased by 15% */
+	max-height: 57.5vh;
+	overflow-y: auto;
+	-webkit-overflow-scrolling: touch;
+	/* Light theme for mega menu */
+	background-color: #F6F7F9 !important; /* soft white */
+	border-color: rgba(0, 0, 0, 0.08) !important;
+	color: #111827; /* default text color inside */
 }
 
 /* Mega menu image box: keeps images large, centered, and below text fits */
@@ -696,16 +682,6 @@ nav img:hover {
 .mega-menu:hover {
     opacity: 1 !important;
     pointer-events: auto !important;
-    visibility: visible !important;
-}
-
-/* Fix for hover state - ensure menu stays open when moving from trigger to menu */
-.group:hover .mega-menu,
-.group.menu-open .mega-menu,
-.mega-menu:hover {
-    opacity: 1 !important;
-    visibility: visible !important;
-    pointer-events: auto !important;
 } 
 
 /* Override hero slideshow offset for full-width display */
@@ -756,5 +732,4 @@ nav img:hover {
 
 .vehicle-filter:hover input[type="checkbox"]:not(:checked) + div > div {
     opacity: 0.3;
-} 
 } 

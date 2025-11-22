@@ -169,12 +169,9 @@ document.addEventListener('DOMContentLoaded', function() {
         function scheduleClose() {
             if (closeTimer) clearTimeout(closeTimer);
             closeTimer = setTimeout(() => {
-                // Double check we're not hovering before closing
-                if (!vehiclesGroup.matches(':hover') && !megaMenu.matches(':hover')) {
-                    closeMenu();
-                }
+                closeMenu();
                 closeTimer = null;
-            }, 200); // Slightly longer delay for better UX
+            }, 150);
         }
 
         function cancelClose() {
@@ -230,40 +227,17 @@ document.addEventListener('DOMContentLoaded', function() {
                 openMenu();
             }
         });
-        
-        // Also add to the parent group for better hover handling
-        if (vehiclesGroup) {
-            vehiclesGroup.addEventListener('mouseenter', () => {
-                if (window.matchMedia('(hover: hover)').matches) {
-                    cancelClose();
-                    openMenu();
-                }
-            });
-        }
 
         // Leaving either the trigger container or the menu schedules a close
-        // But we need to check if we're moving to the mega menu
         if (vehiclesGroup) {
-            vehiclesGroup.addEventListener('mouseleave', (e) => {
+            vehiclesGroup.addEventListener('mouseleave', () => {
                 if (window.matchMedia('(hover: hover)').matches) {
-                    // Check if we're moving to the mega menu
-                    const relatedTarget = e.relatedTarget;
-                    if (relatedTarget && (megaMenu.contains(relatedTarget) || vehiclesGroup.contains(relatedTarget))) {
-                        // Moving within the menu, don't close
-                        return;
-                    }
                     scheduleClose();
                 }
             });
         }
-        megaMenu.addEventListener('mouseleave', (e) => {
+        megaMenu.addEventListener('mouseleave', () => {
             if (window.matchMedia('(hover: hover)').matches) {
-                // Check if we're moving back to the trigger
-                const relatedTarget = e.relatedTarget;
-                if (relatedTarget && vehiclesGroup && vehiclesGroup.contains(relatedTarget)) {
-                    // Moving back to trigger, don't close
-                    return;
-                }
                 scheduleClose();
             }
         });
