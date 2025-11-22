@@ -532,8 +532,7 @@ nav img:hover {
 /* Mega Menu Base Styles */
 .mega-menu {
 	position: absolute;
-	left: 50%;
-	transform: translateX(-50%);
+	left: 0;
 	width: 100vw;
 	height: 57.5vh;
 	max-height: 57.5vh;
@@ -549,6 +548,8 @@ nav img:hover {
 	pointer-events: none;
 	transition: opacity 0.2s ease, visibility 0.2s ease;
 	top: calc(100% + 1rem);
+	/* Position relative to viewport, not parent */
+	margin-left: calc(-50vw + 50%);
 }
 
 /* Show menu when menu-open class is added to parent */
