@@ -541,7 +541,7 @@ nav img:hover {
 	-webkit-overflow-scrolling: touch;
 	/* Light theme for mega menu */
 	background-color: #F6F7F9 !important;
-	border-color: rgba(0, 0, 0, 0.08) !important;
+	border-top: 1px solid rgba(0, 0, 0, 0.08) !important;
 	color: #111827;
 	/* Hidden by default */
 	opacity: 0;
