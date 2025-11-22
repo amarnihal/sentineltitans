@@ -589,16 +589,20 @@ nav img:hover {
     visibility: visible !important;
 }
 
-/* Mega menu - auto height with max constraint */
+/* Mega menu - full width, auto height with max constraint */
 .mega-menu {
-	min-height: auto;
-	max-height: 80vh;
-	overflow-y: visible;
-	overflow-x: hidden;
-	/* Light theme for mega menu */
-	background-color: #F6F7F9 !important; /* soft white */
-	border-color: rgba(0, 0, 0, 0.08) !important;
-	color: #111827; /* default text color inside */
+    position: absolute;
+    left: 0;
+    right: 0;
+    width: 100%;
+    min-height: auto;
+    max-height: 80vh;
+    overflow-y: visible;
+    overflow-x: hidden;
+    /* Light theme for mega menu */
+    background-color: #F6F7F9 !important; /* soft white */
+    border-color: rgba(0, 0, 0, 0.08) !important;
+    color: #111827; /* default text color inside */
 }
 
 /* Mega menu image box: keeps images large, centered, and below text fits */
