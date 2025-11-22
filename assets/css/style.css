@@ -529,38 +529,37 @@ nav img:hover {
     background: linear-gradient(to left, #100E0C 0%, rgba(16,14,12,0) 100%);
 }
 
-/* Mega Menu - JavaScript controlled visibility */
+/* Mega Menu Base Styles */
 .mega-menu {
 	position: absolute;
 	left: 0;
 	right: 0;
 	width: 100%;
-	height: 57.5vh; /* increased by 15% */
+	height: 57.5vh;
 	max-height: 57.5vh;
 	overflow-y: auto;
 	-webkit-overflow-scrolling: touch;
 	/* Light theme for mega menu */
-	background-color: #F6F7F9 !important; /* soft white */
+	background-color: #F6F7F9 !important;
 	border-color: rgba(0, 0, 0, 0.08) !important;
-	color: #111827; /* default text color inside */
+	color: #111827;
+	/* Hidden by default */
 	opacity: 0;
 	visibility: hidden;
-	pointer-events: none; /* Initially disabled, enabled on hover */
+	pointer-events: none;
+	transition: opacity 0.2s ease, visibility 0.2s ease;
 }
 
-/* Show menu when group is hovered or has menu-open class */
-.group:hover .mega-menu,
-.group.menu-open .mega-menu {
+/* Show menu when menu-open class is added to parent */
+#vehicles-nav-group.menu-open .mega-menu {
 	opacity: 1 !important;
 	visibility: visible !important;
 	pointer-events: auto !important;
 }
 
-/* Also show when mega menu itself is hovered */
-.mega-menu:hover {
-	opacity: 1 !important;
-	visibility: visible !important;
-	pointer-events: auto !important;
+/* Menu bridge - invisible gap filler to prevent mouse leave */
+.menu-bridge {
+	pointer-events: auto;
 }
 
 /* Mega menu image box: keeps images large, centered, and below text fits */
@@ -627,34 +626,6 @@ nav img:hover {
 
 /* Removed hover zoom effect for thumbnails */
 
-/* JS-controlled open state - JavaScript sets inline styles, this is backup */
-.group.menu-open .mega-menu {
-	opacity: 1 !important;
-	pointer-events: auto !important;
-	visibility: visible !important;
-}
-
-/* Bridge gap between button and menu when margin-top is present */
-.menu-gap-bridge::before {
-    content: "";
-    position: absolute;
-    top: -1.75rem; /* matches mt-7 (1.75rem) */
-    left: 0;
-    right: 0;
-    height: 1.75rem; /* same size as the gap */
-}
-
-/* Additional Mega Menu Hover Fix */
-.group .mega-menu:hover {
-    opacity: 1 !important;
-    pointer-events: auto !important;
-}
-
-/* Ensure mega menu stays visible when hovering over menu content */
-.mega-menu:hover {
-    opacity: 1 !important;
-    pointer-events: auto !important;
-} 
 
 /* Override hero slideshow offset for full-width display */
 @media (min-width: 768px) {

@@ -47,11 +47,13 @@
                 <div class="hidden md:flex items-center space-x-8">
                     <a href="#home" class="font-inter text-white hover:text-white transition-colors duration-200 text-base">Home</a>
                     <a href="#company" class="font-inter text-gray-300 hover:text-white transition-colors duration-200 text-base">Company</a>
-                    <div class="group relative">
-                        <a href="vehicles.html" class="font-inter text-gray-300 hover:text-white transition-colors duration-200 text-base flex items-center cursor-pointer focus:outline-none">
+                    <div class="group relative" id="vehicles-nav-group">
+                        <a href="vehicles.html" class="vehicles-trigger font-inter text-gray-300 hover:text-white transition-colors duration-200 text-base flex items-center cursor-pointer focus:outline-none">
                             Vehicles
                             <svg class="ml-1 w-4 h-4 text-gray-400 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
                         </a>
+                        <!-- Invisible bridge to prevent gap between trigger and menu -->
+                        <div class="menu-bridge absolute left-0 right-0 top-full h-4 -mt-4 z-40"></div>
                         <!-- Mega Menu -->
                         <div class="mega-menu absolute left-0 right-0 top-full bg-primary-bg border-t border-white/10 shadow-lg transition-opacity duration-200 z-50">
                         <div class="max-w-7xl mx-auto px-12 py-8">

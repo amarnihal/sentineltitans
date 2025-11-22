@@ -146,15 +146,14 @@ document.addEventListener('DOMContentLoaded', function() {
     startSlideshow();
 
     // --- Mega Menu Interactions ---
-    // Pure JavaScript control - reliable hover behavior
+    // Simple, reliable approach: single container handles all hover logic
     (function setupMegaMenuInteractions() {
-        const vehiclesGroup = document.querySelector('nav .group > a[href="vehicles.html"]')?.parentElement;
+        const vehiclesGroup = document.getElementById('vehicles-nav-group');
         if (!vehiclesGroup) return;
 
         const megaMenu = vehiclesGroup.querySelector('.mega-menu');
-        const triggerLink = vehiclesGroup.querySelector('a[href="vehicles.html"]');
-        if (!megaMenu || !triggerLink) return;
-
+        const triggerLink = vehiclesGroup.querySelector('.vehicles-trigger');
+        const bridge = vehiclesGroup.querySelector('.menu-bridge');
         let closeTimer = null;
 
         function showMenu() {
@@ -165,70 +164,49 @@ document.addEventListener('DOMContentLoaded', function() {
             }
             
             vehiclesGroup.classList.add('menu-open');
-            megaMenu.style.opacity = '1';
-            megaMenu.style.visibility = 'visible';
-            megaMenu.setAttribute('aria-hidden', 'false');
-            triggerLink.setAttribute('aria-expanded', 'true');
+            if (megaMenu) {
+                megaMenu.setAttribute('aria-hidden', 'false');
+            }
+            if (triggerLink) {
+                triggerLink.setAttribute('aria-expanded', 'true');
+            }
         }
 
         function hideMenu() {
             vehiclesGroup.classList.remove('menu-open');
-            megaMenu.style.opacity = '0';
-            megaMenu.style.visibility = 'hidden';
-            megaMenu.setAttribute('aria-hidden', 'true');
-            triggerLink.setAttribute('aria-expanded', 'false');
-        }
-
-        function tryHideMenu() {
-            // Only hide if not hovering over group or menu
-            if (!vehiclesGroup.matches(':hover') && !megaMenu.matches(':hover')) {
-                hideMenu();
+            if (megaMenu) {
+                megaMenu.setAttribute('aria-hidden', 'true');
+            }
+            if (triggerLink) {
+                triggerLink.setAttribute('aria-expanded', 'false');
             }
         }
 
-        // Mouse enters group (trigger link area)
+        // When mouse enters the entire container (trigger, bridge, or menu)
         vehiclesGroup.addEventListener('mouseenter', showMenu);
 
-        // Mouse leaves group - check if moving to menu
-        vehiclesGroup.addEventListener('mouseleave', (e) => {
-            // Delay closing to allow mouse to reach menu
+        // When mouse leaves the entire container
+        vehiclesGroup.addEventListener('mouseleave', () => {
             closeTimer = setTimeout(() => {
-                tryHideMenu();
-                closeTimer = null;
-            }, 150);
-        });
-
-        // Mouse enters mega menu
-        megaMenu.addEventListener('mouseenter', () => {
-            // Cancel any pending close
-            if (closeTimer) {
-                clearTimeout(closeTimer);
-                closeTimer = null;
-            }
-            showMenu();
-        });
-
-        // Mouse leaves mega menu
-        megaMenu.addEventListener('mouseleave', () => {
-            closeTimer = setTimeout(() => {
-                tryHideMenu();
-                closeTimer = null;
-            }, 150);
-        });
-
-        // Click to toggle
-        triggerLink.setAttribute('aria-haspopup', 'true');
-        triggerLink.setAttribute('aria-expanded', 'false');
-        
-        triggerLink.addEventListener('click', (e) => {
-            e.preventDefault();
-            const isVisible = megaMenu.style.visibility === 'visible';
-            if (isVisible) {
                 hideMenu();
-            } else {
-                showMenu();
-            }
+                closeTimer = null;
+            }, 150);
         });
+
+        // Click on trigger to toggle (for accessibility and mobile)
+        if (triggerLink) {
+            triggerLink.setAttribute('aria-haspopup', 'true');
+            triggerLink.setAttribute('aria-expanded', 'false');
+            
+            triggerLink.addEventListener('click', (e) => {
+                e.preventDefault();
+                if (vehiclesGroup.classList.contains('menu-open')) {
+                    hideMenu();
+                } else {
+                    showMenu();
+                }
+            });
+        }
 
         // Close when clicking outside
         document.addEventListener('click', (e) => {
@@ -239,7 +217,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Close on Escape key
         document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && megaMenu.style.visibility === 'visible') {
+            if (e.key === 'Escape' && vehiclesGroup.classList.contains('menu-open')) {
                 hideMenu();
             }
         });
