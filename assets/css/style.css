@@ -589,12 +589,12 @@ nav img:hover {
     visibility: visible !important;
 }
 
-/* Fixed height for mega menu: half of the viewport */
+/* Mega menu - auto height with max constraint */
 .mega-menu {
-	height: 57.5vh; /* increased by 15% */
-	max-height: 57.5vh;
-	overflow-y: auto;
-	-webkit-overflow-scrolling: touch;
+	min-height: auto;
+	max-height: 80vh;
+	overflow-y: visible;
+	overflow-x: hidden;
 	/* Light theme for mega menu */
 	background-color: #F6F7F9 !important; /* soft white */
 	border-color: rgba(0, 0, 0, 0.08) !important;
@@ -698,8 +698,7 @@ nav img:hover {
 /* Fix for hover state - ensure menu stays open when moving from trigger to menu */
 .group:hover .mega-menu,
 .group.menu-open .mega-menu,
-.mega-menu:hover,
-.mega-menu:has(:hover) {
+.mega-menu:hover {
     opacity: 1 !important;
     visibility: visible !important;
     pointer-events: auto !important;
