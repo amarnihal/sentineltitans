@@ -532,9 +532,9 @@ nav img:hover {
 /* Mega Menu Base Styles */
 .mega-menu {
 	position: absolute;
-	left: 0;
-	right: 0;
-	width: 100%;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 100vw;
 	height: 57.5vh;
 	max-height: 57.5vh;
 	overflow-y: auto;
@@ -548,6 +548,7 @@ nav img:hover {
 	visibility: hidden;
 	pointer-events: none;
 	transition: opacity 0.2s ease, visibility 0.2s ease;
+	top: 100%;
 }
 
 /* Show menu when menu-open class is added to parent */
@@ -559,7 +560,13 @@ nav img:hover {
 
 /* Menu bridge - invisible gap filler to prevent mouse leave */
 .menu-bridge {
-	pointer-events: auto;
+	position: absolute;
+	top: 100%;
+}
+
+/* Ensure vehicles nav group is positioned relatively */
+#vehicles-nav-group {
+	position: relative;
 }
 
 /* Mega menu image box: keeps images large, centered, and below text fits */
