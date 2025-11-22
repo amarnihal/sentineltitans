@@ -146,15 +146,77 @@ document.addEventListener('DOMContentLoaded', function() {
     startSlideshow();
 
     // --- Mega Menu Interactions ---
-    // Note: The open/close behavior is now handled purely via CSS hover
-    // classes (`group-hover` and `.mega-menu:hover`) to ensure that the
-    // menu stays open whenever the user is hovering over the Vehicles
-    // trigger or the mega menu panel itself. We intentionally removed the
-    // JavaScript hover timers and mouseleave logic to avoid the menu
-    // closing while moving the cursor between the trigger and the panel.
-    //
-    // The only JS that still affects the mega menu lives in the tab
-    // setup function below, which just populates the content.
+    // Use JS to keep the mega menu open while hovering anywhere over the
+    // Vehicles trigger OR the mega menu panel, using a single wrapper.
+    (function setupMegaMenuInteractions() {
+        // Wrapper that contains the Vehicles link + the mega menu panel
+        const vehiclesGroup = document.querySelector('nav .group > a[href="vehicles.html"]')
+            ? document.querySelector('nav .group > a[href="vehicles.html"]').parentElement
+            : null;
+
+        if (!vehiclesGroup) return;
+
+        const megaMenu = vehiclesGroup.querySelector('.mega-menu');
+        const triggerLink = vehiclesGroup.querySelector('a[href="vehicles.html"]');
+        let closeTimer = null;
+
+        function openMenu() {
+            vehiclesGroup.classList.add('menu-open');
+            if (megaMenu) megaMenu.setAttribute('aria-hidden', 'false');
+            if (triggerLink) triggerLink.setAttribute('aria-expanded', 'true');
+        }
+
+        function closeMenu() {
+            vehiclesGroup.classList.remove('menu-open');
+            if (megaMenu) megaMenu.setAttribute('aria-hidden', 'true');
+            if (triggerLink) triggerLink.setAttribute('aria-expanded', 'false');
+        }
+
+        vehiclesGroup.addEventListener('mouseenter', () => {
+            if (closeTimer) {
+                clearTimeout(closeTimer);
+                closeTimer = null;
+            }
+            openMenu();
+        });
+
+        vehiclesGroup.addEventListener('mouseleave', () => {
+            // Small delay so quick movements between trigger and panel don't close it
+            closeTimer = setTimeout(() => {
+                closeMenu();
+                closeTimer = null;
+            }, 150);
+        });
+
+        if (triggerLink) {
+            // Click to toggle on desktop (and for accessibility)
+            triggerLink.setAttribute('aria-haspopup', 'true');
+            triggerLink.setAttribute('aria-expanded', 'false');
+
+            triggerLink.addEventListener('click', (e) => {
+                // Prevent navigation when we're just toggling the menu
+                e.preventDefault();
+                if (vehiclesGroup.classList.contains('menu-open')) {
+                    closeMenu();
+                } else {
+                    openMenu();
+                }
+            });
+        }
+
+        // Close when clicking outside or pressing Escape
+        document.addEventListener('click', (e) => {
+            if (!vehiclesGroup.contains(e.target)) {
+                closeMenu();
+            }
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeMenu();
+            }
+        });
+    })();
 
     // --- Mega Menu: Tabbed Category Content ---
     (function setupMegaMenuTabs() {
