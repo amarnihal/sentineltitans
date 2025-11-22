@@ -145,115 +145,16 @@ document.addEventListener('DOMContentLoaded', function() {
     // Start the slideshow
     startSlideshow();
 
-    // --- Mega Menu Interactions (hover via CSS, click toggle via JS) ---
-    const megaMenu = document.querySelector('.mega-menu');
-    if (megaMenu) {
-        const vehiclesGroup = megaMenu.parentElement;
-        const triggerLink = vehiclesGroup ? vehiclesGroup.querySelector('a[href="vehicles.html"]') : null;
-        let closeTimer = null;
-        const megaMenuTabs = megaMenu.querySelectorAll('#mega-menu-tabs .vehicle-tab');
-        const megaMenuContent = megaMenu.querySelector('#mega-menu-content');
-
-        function openMenu() {
-            if (!vehiclesGroup) return;
-            vehiclesGroup.classList.add('menu-open');
-            if (triggerLink) triggerLink.setAttribute('aria-expanded', 'true');
-        }
-
-        function closeMenu() {
-            if (!vehiclesGroup) return;
-            vehiclesGroup.classList.remove('menu-open');
-            if (triggerLink) triggerLink.setAttribute('aria-expanded', 'false');
-        }
-
-        function scheduleClose() {
-            if (closeTimer) clearTimeout(closeTimer);
-            closeTimer = setTimeout(() => {
-                closeMenu();
-                closeTimer = null;
-            }, 150);
-        }
-
-        function cancelClose() {
-            if (closeTimer) {
-                clearTimeout(closeTimer);
-                closeTimer = null;
-            }
-        }
-
-        // Click to toggle (desktop hover-capable environments)
-        if (triggerLink) {
-            triggerLink.setAttribute('aria-haspopup', 'true');
-            triggerLink.setAttribute('aria-expanded', 'false');
-
-            triggerLink.addEventListener('click', (e) => {
-                // Only toggle when hover-capable (desktop) to avoid conflicting with mobile nav
-                if (window.matchMedia('(hover: hover)').matches) {
-                    e.preventDefault();
-                    if (vehiclesGroup.classList.contains('menu-open')) {
-                        closeMenu();
-                    } else {
-                        openMenu();
-                    }
-                }
-            });
-
-            // Keyboard accessibility
-            triggerLink.addEventListener('keydown', (e) => {
-                if (e.key === 'Enter' || e.key === ' ') {
-                    e.preventDefault();
-                    openMenu();
-                    const firstLink = megaMenu.querySelector('a');
-                    if (firstLink) firstLink.focus();
-                } else if (e.key === 'Escape') {
-                    closeMenu();
-                    triggerLink.focus();
-                }
-            });
-
-            // Hover interactions to keep menu open when pointer moves to the panel
-            triggerLink.addEventListener('mouseenter', () => {
-                if (window.matchMedia('(hover: hover)').matches) {
-                    cancelClose();
-                    openMenu();
-                }
-            });
-        }
-
-        // Hover into mega menu keeps it open
-        megaMenu.addEventListener('mouseenter', () => {
-            if (window.matchMedia('(hover: hover)').matches) {
-                cancelClose();
-                openMenu();
-            }
-        });
-
-        // Leaving either the trigger container or the menu schedules a close
-        if (vehiclesGroup) {
-            vehiclesGroup.addEventListener('mouseleave', () => {
-                if (window.matchMedia('(hover: hover)').matches) {
-                    scheduleClose();
-                }
-            });
-        }
-        megaMenu.addEventListener('mouseleave', () => {
-            if (window.matchMedia('(hover: hover)').matches) {
-                scheduleClose();
-            }
-        });
-
-        // Close on outside click or Escape
-        document.addEventListener('click', (e) => {
-            if (vehiclesGroup && !vehiclesGroup.contains(e.target)) {
-                closeMenu();
-            }
-        });
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') {
-                closeMenu();
-            }
-        });
-    }
+    // --- Mega Menu Interactions ---
+    // Note: The open/close behavior is now handled purely via CSS hover
+    // classes (`group-hover` and `.mega-menu:hover`) to ensure that the
+    // menu stays open whenever the user is hovering over the Vehicles
+    // trigger or the mega menu panel itself. We intentionally removed the
+    // JavaScript hover timers and mouseleave logic to avoid the menu
+    // closing while moving the cursor between the trigger and the panel.
+    //
+    // The only JS that still affects the mega menu lives in the tab
+    // setup function below, which just populates the content.
 
     // --- Mega Menu: Tabbed Category Content ---
     (function setupMegaMenuTabs() {
