@@ -657,11 +657,26 @@ nav img:hover {
 
 /* Removed hover zoom effect for thumbnails */
 
-/* JS-controlled open state (adds robustness for click/focus interactions) */
-.group.menu-open .mega-menu {
+/* JS-controlled open state - MUST override Tailwind's invisible and opacity-0 classes */
+.group.menu-open .mega-menu,
+.group.menu-open .mega-menu.invisible,
+.group.menu-open .mega-menu.opacity-0 {
 	opacity: 1 !important;
 	pointer-events: auto !important;
 	visibility: visible !important;
+	display: block !important;
+}
+
+/* Also ensure it stays open when menu itself is hovered */
+.group.menu-open .mega-menu:hover {
+	opacity: 1 !important;
+	visibility: visible !important;
+	pointer-events: auto !important;
+}
+
+/* When hovering on mega menu, also keep parent group in menu-open state */
+.mega-menu:hover ~ * {
+	/* This ensures parent stays hovered */
 }
 
 /* Bridge gap between button and menu when margin-top is present */

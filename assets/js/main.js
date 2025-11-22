@@ -162,13 +162,26 @@ document.addEventListener('DOMContentLoaded', function() {
 
         function openMenu() {
             vehiclesGroup.classList.add('menu-open');
-            if (megaMenu) megaMenu.setAttribute('aria-hidden', 'false');
+            if (megaMenu) {
+                megaMenu.setAttribute('aria-hidden', 'false');
+                megaMenu.classList.remove('invisible');
+                megaMenu.style.opacity = '1';
+                megaMenu.style.visibility = 'visible';
+            }
             if (triggerLink) triggerLink.setAttribute('aria-expanded', 'true');
         }
 
         function closeMenu() {
             vehiclesGroup.classList.remove('menu-open');
-            if (megaMenu) megaMenu.setAttribute('aria-hidden', 'true');
+            if (megaMenu) {
+                megaMenu.setAttribute('aria-hidden', 'true');
+                // Don't force close if still hovering
+                if (!vehiclesGroup.matches(':hover') && !megaMenu.matches(':hover')) {
+                    megaMenu.classList.add('invisible');
+                    megaMenu.style.opacity = '0';
+                    megaMenu.style.visibility = 'hidden';
+                }
+            }
             if (triggerLink) triggerLink.setAttribute('aria-expanded', 'false');
         }
 
@@ -180,13 +193,46 @@ document.addEventListener('DOMContentLoaded', function() {
             openMenu();
         });
 
-        vehiclesGroup.addEventListener('mouseleave', () => {
-            // Small delay so quick movements between trigger and panel don't close it
+        vehiclesGroup.addEventListener('mouseleave', (e) => {
+            // Check if we're moving to the mega menu itself
+            const relatedTarget = e.relatedTarget;
+            if (relatedTarget && (megaMenu && megaMenu.contains(relatedTarget))) {
+                // Moving into menu, don't close
+                return;
+            }
+            // Longer delay to allow smooth movement from trigger to menu
             closeTimer = setTimeout(() => {
-                closeMenu();
+                // Double-check we're not still hovering
+                if (!vehiclesGroup.matches(':hover') && (!megaMenu || !megaMenu.matches(':hover'))) {
+                    closeMenu();
+                }
                 closeTimer = null;
-            }, 150);
+            }, 300);
         });
+        
+        // Also handle hover on the mega menu itself to keep parent open
+        if (megaMenu) {
+            megaMenu.addEventListener('mouseenter', () => {
+                if (closeTimer) {
+                    clearTimeout(closeTimer);
+                    closeTimer = null;
+                }
+                openMenu();
+            });
+            
+            megaMenu.addEventListener('mouseleave', (e) => {
+                // Check if moving back to trigger
+                const relatedTarget = e.relatedTarget;
+                if (relatedTarget && vehiclesGroup.contains(relatedTarget)) {
+                    // Moving back to trigger, keep open
+                    return;
+                }
+                closeTimer = setTimeout(() => {
+                    closeMenu();
+                    closeTimer = null;
+                }, 200);
+            });
+        }
 
         if (triggerLink) {
             // Click to toggle on desktop (and for accessibility)
